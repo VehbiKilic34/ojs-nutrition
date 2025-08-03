@@ -1,0 +1,1766 @@
+{
+	"info": {
+		"_postman_id": "334fe5bc-fea8-4988-b5cd-0a6064a0d249",
+		"name": "OJS Nutrition",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "13843038"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Refresh Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"refresh_token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTcxOTY4NzIwNCwiaWF0IjoxNzE5NjAwODA0LCJqdGkiOiI5YzNkOWRmNGRlZGE0OTY3ODE0ZTFkNDcyYzFkZGI5ZCIsInVzZXJfaWQiOjJ9.7FzxWYc0Nq9B_U09trrcj-5rel_7dsHuGlj5rG_nAjQ\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/token/refresh",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"token",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"deneme@mail.com\",\n    \"password\": \"123asd456+\",\n    \"password2\": \"123asd456+\",\n    \"api_key\": \"123456\",\n    \"first_name\": \"Ahmet\",\n    \"last_name\": \"Mehmetoğlu\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"deneme@mail.com\",\n    \"password\": \"123asd456+\",\n    \"api_key\": \"123456\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/auth/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Project",
+			"item": [
+				{
+					"name": "Project JWT Settings Update",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"project_access_key\": \"64a33218-ebec-4f86-8c70-013449d16cc7\",\n    \"access_token_life_minute\": 1000,\n    \"refresh_token_life_minute\": 1900\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/projects/change-jwt-settings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"projects",
+								"change-jwt-settings"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Address",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/addresses?limit=10&offset=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"addresses"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "title",
+											"value": "bas",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Ev\",\n    \"country_id\": 226,\n    \"region_id\": 3495,\n    \"subregion_id\": 39395,\n    \"full_address\": \"Şu Mh. Bu Sk. No:1 D:2\",\n    \"phone_number\": \"+905123456789\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/addresses",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"addresses"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"title\": \"Ofis\",\n    \"country_id\": 226,\n    \"region_id\": 3495,\n    \"subregion_id\": 39395,\n    \"full_address\": \"Asdfg Mh. Bnmöç Sk. No:3 D:4\",\n    \"phone_number\": \"+905123789456\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/addresses/:addressId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"addresses",
+										":addressId"
+									],
+									"variable": [
+										{
+											"key": "addressId",
+											"value": "e6448bdf-dbb2-41dd-b478-a54868c67f17"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Destroy",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/addresses/:addressId",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"addresses",
+										":addressId"
+									],
+									"variable": [
+										{
+											"key": "addressId",
+											"value": "e6448bdf-dbb2-41dd-b478-a54868c67f17"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "My Account",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/my-account",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"my-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update My Account",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"first_name\": \"Ayşe\",\n    \"last_name\": \"Fatmaoğlu\",\n    \"phone_number\": \"+905123456789\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/my-account",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"my-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update My Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"old_password\": \"123asd456+\",\n    \"password\": \"123asd456++\",\n    \"password2\": \"123asd456++\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/change-password",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"change-password"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "World",
+			"item": [
+				{
+					"name": "List Countries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/world/countries?limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"world",
+								"countries"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "turkey",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/world/countries?limit=10",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"world",
+										"countries"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "turkey",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:23:23 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "458"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"count\": 252,\n        \"next\": \"https://fe1111.projects.academy.onlyjs.com/api/v1/world/countries?limit=10&offset=10\",\n        \"previous\": null,\n        \"results\": [\n            {\n                \"id\": 3,\n                \"name\": \"Afghanistan\"\n            },\n            {\n                \"id\": 15,\n                \"name\": \"Aland Islands\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Albania\"\n            },\n            {\n                \"id\": 62,\n                \"name\": \"Algeria\"\n            },\n            {\n                \"id\": 11,\n                \"name\": \"American Samoa\"\n            },\n            {\n                \"id\": 1,\n                \"name\": \"Andorra\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Angola\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Anguilla\"\n            },\n            {\n                \"id\": 9,\n                \"name\": \"Antarctica\"\n            },\n            {\n                \"id\": 4,\n                \"name\": \"Antigua and Barbuda\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Regions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/world/region?limit=10&offset=0&name=istan&country-name=turkey",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"world",
+								"region"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "name",
+									"value": "istan"
+								},
+								{
+									"key": "country-name",
+									"value": "turkey"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/world/region?limit=10&offset=0&country-name=turkey",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"world",
+										"region"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "name",
+											"value": "istan",
+											"disabled": true
+										},
+										{
+											"key": "country-name",
+											"value": "turkey"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:24:18 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "860"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"count\": 81,\n        \"next\": \"https://fe1111.projects.academy.onlyjs.com/api/v1/world/region?country-name=turkey&limit=10&offset=10\",\n        \"previous\": null,\n        \"results\": [\n            {\n                \"id\": 3473,\n                \"name\": \"Adana\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3472,\n                \"name\": \"Adıyaman Province\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3471,\n                \"name\": \"Afyonkarahisar Province\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3470,\n                \"name\": \"Ağrı\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3476,\n                \"name\": \"Aksaray\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3505,\n                \"name\": \"Amasya\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3469,\n                \"name\": \"Ankara\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3468,\n                \"name\": \"Antalya\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3509,\n                \"name\": \"Ardahan\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            },\n            {\n                \"id\": 3504,\n                \"name\": \"Artvin\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Example 2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/world/region?limit=10&offset=0&country-name=turkey",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"world",
+										"region"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "name",
+											"value": "istan",
+											"disabled": true
+										},
+										{
+											"key": "country-name",
+											"value": "turkey"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:24:05 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "146"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"count\": 1,\n        \"next\": null,\n        \"previous\": null,\n        \"results\": [\n            {\n                \"id\": 3495,\n                \"name\": \"Istanbul\",\n                \"country\": {\n                    \"id\": 226,\n                    \"name\": \"Turkey\"\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Subregions",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/world/subregion?limit=30&offset=0&region-name=istanbul",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"world",
+								"subregion"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "30"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "name",
+									"value": "maltep",
+									"disabled": true
+								},
+								{
+									"key": "region-name",
+									"value": "istanbul"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/world/subregion?limit=30&offset=0&region-name=istanbul",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"world",
+										"subregion"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "30"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "name",
+											"value": "maltep",
+											"disabled": true
+										},
+										{
+											"key": "region-name",
+											"value": "istanbul"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:25:29 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "3441"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"count\": 39,\n        \"next\": \"https://fe1111.projects.academy.onlyjs.com/api/v1/world/subregion?limit=30&offset=30&region-name=istanbul\",\n        \"previous\": null,\n        \"results\": [\n            {\n                \"id\": 39394,\n                \"name\": \"Adalar\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39395,\n                \"name\": \"Arnavutköy\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39396,\n                \"name\": \"Ataşehir\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39271,\n                \"name\": \"Avcılar\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39275,\n                \"name\": \"Bağcılar\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39273,\n                \"name\": \"Bahçelievler\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39276,\n                \"name\": \"Bakırköy\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39397,\n                \"name\": \"Başakşehir\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39274,\n                \"name\": \"Bayrampaşa\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39361,\n                \"name\": \"Beşiktaş\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39362,\n                \"name\": \"Beykoz\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39398,\n                \"name\": \"Beylikdüzü\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39277,\n                \"name\": \"Beyoğlu\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39272,\n                \"name\": \"Büyükçekmece\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39278,\n                \"name\": \"Çatalca\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39399,\n                \"name\": \"Çekmeköy\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39279,\n                \"name\": \"Esenler\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39400,\n                \"name\": \"Esenyurt\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39280,\n                \"name\": \"Eyüpsultan\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39363,\n                \"name\": \"Fatih\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39281,\n                \"name\": \"Gaziosmanpaşa\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39282,\n                \"name\": \"Güngören\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39283,\n                \"name\": \"Kadıköy\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39284,\n                \"name\": \"Kâğıthane\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39285,\n                \"name\": \"Kartal\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39286,\n                \"name\": \"Küçükçekmece\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39364,\n                \"name\": \"Maltepe\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39287,\n                \"name\": \"Pendik\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39401,\n                \"name\": \"Sancaktepe\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            },\n            {\n                \"id\": 39402,\n                \"name\": \"Sarıyer\",\n                \"region\": {\n                    \"id\": 3495,\n                    \"name\": \"Istanbul\",\n                    \"country\": {\n                        \"id\": 226,\n                        \"name\": \"Turkey\"\n                    }\n                }\n            }\n        ]\n    }\n}"
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Categories",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/categories",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"categories"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 30 Jun 2024 00:17:55 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "9746"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"data\": [\n            {\n                \"id\": \"38fb5754-3068-4490-a12a-169fa564c675\",\n                \"name\": \"PROTEİN\",\n                \"slug\": \"protein\",\n                \"order\": 1,\n                \"children\": [\n                    {\n                        \"id\": \"04c9618e-553a-43cd-a72e-b646215d23e5\",\n                        \"name\": \"PROTEİNLER\",\n                        \"slug\": \"proteinler\",\n                        \"order\": 1,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Whey Protein\",\n                                \"slug\": \"whey-protein\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Whey İzole\",\n                                \"slug\": \"whey-isolate\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Bezelye Proteini\",\n                                \"slug\": \"pea-protein\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Kazein\",\n                                \"slug\": \"micellar-casein\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Yumurta Akı Proteini\",\n                                \"slug\": \"egg-white-powder\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Süt Proteini\",\n                                \"slug\": \"milk-protein\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Soya Proteini\",\n                                \"slug\": \"soya-protein\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Kolajen Proteini\",\n                                \"slug\": \"collagen\",\n                                \"order\": 8\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"fc8db3ca-f0b6-4c35-9f43-319248a9526c\",\n                        \"name\": \"PROTEİNLİ ÜRÜNLER\",\n                        \"slug\": \"proteinli-urunler\",\n                        \"order\": 2,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Mass Gainer\",\n                                \"slug\": \"mass-gainer\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Vegan Gainer\",\n                                \"slug\": \"vegan-gainer\",\n                                \"order\": 2\n                            }\n                        ]\n                    }\n                ],\n                \"top_sellers\": [\n                    {\n                        \"name\": \"WHEY PROTEIN\",\n                        \"slug\": \"whey-protein\",\n                        \"description\": \"EN ÇOK TERCİH EDİLEN PROTEİN TAKVİYESİ\",\n                        \"picture_src\": \"/media/whey-protein_400_biscuit.webp\"\n                    },\n                    {\n                        \"name\": \"WHEY ISOLATE\",\n                        \"slug\": \"whey-isolate\",\n                        \"description\": \"%90 PROTEİNLİ EN SAF WHEY\",\n                        \"picture_src\": \"/media/whey-isolate_400_biscuit.webp\"\n                    },\n                    {\n                        \"name\": \"PEA PROTEIN\",\n                        \"slug\": \"pea-protein\",\n                        \"description\": \"EN POPÜLER VEGAN PROTEİN KAYNAĞI\",\n                        \"picture_src\": \"/media/pea-protein_400_strawberry.webp\"\n                    }\n                ]\n            },\n            {\n                \"id\": \"d3cdcefe-eedd-4ee0-a254-b821ed4e2b8c\",\n                \"name\": \"SPOR GIDALARI\",\n                \"slug\": \"spor-gidalari\",\n                \"order\": 2,\n                \"children\": [\n                    {\n                        \"id\": \"13e12b25-5f83-4d5a-b555-e252c9b39012\",\n                        \"name\": \"AMİNO ASİTLER\",\n                        \"slug\": \"amino-asitler\",\n                        \"order\": 1,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Creatine\",\n                                \"slug\": \"creatine\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Creatine Creapure\",\n                                \"slug\": \"creatine-creapure\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"BCAA\",\n                                \"slug\": \"bcaa-411\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"L-Carnitine\",\n                                \"slug\": \"l-carnitine\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Glutamine\",\n                                \"slug\": \"glutamine\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Eaa+\",\n                                \"slug\": \"eaa\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Arginine\",\n                                \"slug\": \"eaa\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Taurine\",\n                                \"slug\": \"taurine\",\n                                \"order\": 8\n                            },\n                            {\n                                \"name\": \"Leucine\",\n                                \"slug\": \"leucine\",\n                                \"order\": 9\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"55e4309a-c005-490d-949f-496553ba67fe\",\n                        \"name\": \"PRE-WORKOUT\",\n                        \"slug\": \"preworkoutlar\",\n                        \"order\": 2,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Heavy Duty Pre-Workout\",\n                                \"slug\": \"heavy-duty-preworkout\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Pre-Workout Supreme\",\n                                \"slug\": \"preworkout\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"HydroPrime\",\n                                \"slug\": \"hydroprime\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Citrulline\",\n                                \"slug\": \"citrulline\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Thermo Burner\",\n                                \"slug\": \"burner\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Caffeine\",\n                                \"slug\": \"caffeine\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Pump Stim Free\",\n                                \"slug\": \"pump\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Beta Alanine\",\n                                \"slug\": \"beta-alanine\",\n                                \"order\": 8\n                            },\n                            {\n                                \"name\": \"Betaine\",\n                                \"slug\": \"betaine\",\n                                \"order\": 9\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"e38f4498-a5b5-4afd-838a-8f88fc53e59d\",\n                        \"name\": \"KARBONHİDRATLAR\",\n                        \"slug\": \"karbonhidratlar\",\n                        \"order\": 3,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Cream of Rice\",\n                                \"slug\": \"cream-of-rice\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Mass Gainer\",\n                                \"slug\": \"mass-gainer\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Maltodextrin\",\n                                \"slug\": \"maltodextrin\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Dextrose\",\n                                \"slug\": \"dextrose\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Vegan Gainer\",\n                                \"slug\": \"vegan-gainer\",\n                                \"order\": 5\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"4a15e356-8699-4510-81ee-98cc02489a3d\",\n                        \"name\": \"DİĞER\",\n                        \"slug\": \"diger\",\n                        \"order\": 3,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Ultra Focus\",\n                                \"slug\": \"ultra-mind\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Gamer Hack\",\n                                \"slug\": \"gamer-hack\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"CLA\",\n                                \"slug\": \"cla-softgel\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Post-Workout\",\n                                \"slug\": \"post-workout-tm\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Electrolyte Blend\",\n                                \"slug\": \"electrolyte-blend\",\n                                \"order\": 5\n                            }\n                        ]\n                    }\n                ],\n                \"top_sellers\": [\n                    {\n                        \"name\": \"CREATINE\",\n                        \"slug\": \"creatine\",\n                        \"description\": \"EN POPÜLER SPORCU TAKVİYESİ\",\n                        \"picture_src\": \"/media/creatine_300_.webp\"\n                    },\n                    {\n                        \"name\": \"PRE-WORKOUT SUPREME\",\n                        \"slug\": \"preworkout\",\n                        \"description\": \"ANTREMAN ÖNCESİ TAKVİYESİ\",\n                        \"picture_src\": \"/media/preworkout_300_apple.webp\"\n                    },\n                    {\n                        \"name\": \"CREAM OF RICE\",\n                        \"slug\": \"cream-of-rice\",\n                        \"description\": \"EN LEZZETLİ PİRİNÇ KREMASI\",\n                        \"picture_src\": \"/media/cream-of-rice_1000_chocolate.webp\"\n                    }\n                ]\n            },\n            {\n                \"id\": \"8eaeff30-3138-49ac-b120-0eac18866190\",\n                \"name\": \"GIDA\",\n                \"slug\": \"gida\",\n                \"order\": 4,\n                \"children\": [\n                    {\n                        \"id\": \"5d0137ad-4d65-4b3d-9f20-d5e88d16ba55\",\n                        \"name\": \"GIDA ÜRÜNLERİ\",\n                        \"slug\": \"gida-urunleri\",\n                        \"order\": 1,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Pirinç Kreması\",\n                                \"slug\": \"cream-of-rice\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Fıstık Ezmesi\",\n                                \"slug\": \"fistik-ezmesi\",\n                                \"order\": 2\n                            }\n                        ]\n                    }\n                ],\n                \"top_sellers\": [\n                    {\n                        \"name\": \"CREAM OF RICE\",\n                        \"slug\": \"cream-of-rice\",\n                        \"description\": \"EN LEZZETLİ PİRİNÇ KREMASI\",\n                        \"picture_src\": \"/media/cream-of-rice_1000_chocolate.webp\"\n                    },\n                    {\n                        \"name\": \"FISTIK EZMESİ\",\n                        \"slug\": \"fistik-ezmesi\",\n                        \"description\": \"%100 DOĞAL, KATKISIZ FISTIK EZMESİ\",\n                        \"picture_src\": \"/media/fistik-ezmesi_650_.webp\"\n                    }\n                ]\n            },\n            {\n                \"id\": \"cae64711-98b9-48f4-82b4-c5d460718dcf\",\n                \"name\": \"SAĞLIK\",\n                \"slug\": \"saglik\",\n                \"order\": 3,\n                \"children\": [\n                    {\n                        \"id\": \"ff5b7fd9-f56e-4d8f-a0b4-edfc7836b615\",\n                        \"name\": \"FONKSİYONEL GIDALAR\",\n                        \"slug\": \"fonksiyonel-gidalar\",\n                        \"order\": 1,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Collagen\",\n                                \"slug\": \"collagen\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Deep Sleep\",\n                                \"slug\": \"deep-sleep\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Multivitamin\",\n                                \"slug\": \"multivitamin\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"C Vitamini Efervesan\",\n                                \"slug\": \"c-vitamini-efervesan\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Digestion\",\n                                \"slug\": \"digestion\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Prebiotics\",\n                                \"slug\": \"prebiotics\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Inulin\",\n                                \"slug\": \"inulin\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Mct Oil\",\n                                \"slug\": \"mctoil\",\n                                \"order\": 8\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"54a6ef5a-ae85-4d9b-a5a4-4cfb65c62471\",\n                        \"name\": \"BİTKİ TOZLARI\",\n                        \"slug\": \"bitki-tozlari\",\n                        \"order\": 2,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Green Detox+\",\n                                \"slug\": \"green-detox\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Red Detox+\",\n                                \"slug\": \"red-detox\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Brokoli Tozu\",\n                                \"slug\": \"broccoli-powder\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Maca Kökü Tozu\",\n                                \"slug\": \"maca-root-powder\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Ispanak Tozu\",\n                                \"slug\": \"spinach-powder\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Maydonoz Tozu\",\n                                \"slug\": \"parsley-powder\",\n                                \"order\": 6\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"36662165-01ca-4954-b39a-1b8cbf420751\",\n                        \"name\": \"ZAYIFLAMA\",\n                        \"slug\": \"zayiflama\",\n                        \"order\": 3,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Thermo Burner\",\n                                \"slug\": \"burner\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"L-Carnitine\",\n                                \"slug\": \"l-carnitine\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"CLA\",\n                                \"slug\": \"cla-softgel\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Hunger Buster\",\n                                \"slug\": \"hunger-buster\",\n                                \"order\": 4\n                            }\n                        ]\n                    }\n                ],\n                \"top_sellers\": [\n                    {\n                        \"name\": \"COLLAGEN\",\n                        \"slug\": \"collagen\",\n                        \"description\": \"VÜCUTTAKİ EN BOL PROTEİN\",\n                        \"picture_src\": \"/media/collagen_250_raspberry.webp\"\n                    },\n                    {\n                        \"name\": \"DEEP SLEEP\",\n                        \"slug\": \"deep-sleep\",\n                        \"description\": \"UYKU ÖNCESİ TAKVİSYESİ\",\n                        \"picture_src\": \"/media/deep-sleep_150_raspberry.webp\"\n                    },\n                    {\n                        \"name\": \"GREEN DETOX\",\n                        \"slug\": \"green-detox\",\n                        \"description\": \"SEBZE TÜKETMENİN KOLAY YOLU\",\n                        \"picture_src\": \"/media/green-detox_300_.webp\"\n                    }\n                ]\n            },\n            {\n                \"id\": \"cae64711-98b9-48f4-82b4-c5d460718dcf\",\n                \"name\": \"VİTAMİN\",\n                \"slug\": \"vitamin\",\n                \"order\": 5,\n                \"children\": [\n                    {\n                        \"id\": \"a69a6f39-a7c1-49d6-8287-fee0e311ad43\",\n                        \"name\": \"ÖZEL FORMÜL ÜRÜNLER\",\n                        \"slug\": \"ozel-formul-urunler\",\n                        \"order\": 1,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Thermo Burner\",\n                                \"slug\": \"burner\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"T-Prime\",\n                                \"slug\": \"tprime\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Gamer Multivitamin\",\n                                \"slug\": \"gamer-multi\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"LVR\",\n                                \"slug\": \"liver\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"KDNY\",\n                                \"slug\": \"kidney\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Relax\",\n                                \"slug\": \"relax\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Beauty Formula\",\n                                \"slug\": \"hair-nails-skin\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Focus Formula\",\n                                \"slug\": \"ultra-brain\",\n                                \"order\": 8\n                            },\n                            {\n                                \"name\": \"GDA\",\n                                \"slug\": \"gda\",\n                                \"order\": 9\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"23ea76ff-cd3b-41f3-a31f-81d99ba7213a\",\n                        \"name\": \"POPÜLER TAKVİYELER\",\n                        \"slug\": \"populer-takviyeler\",\n                        \"order\": 2,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"ZMA\",\n                                \"slug\": \"zma\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Multivitamin\",\n                                \"slug\": \"multivitamin\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Omega 3\",\n                                \"slug\": \"omega3\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Kafein\",\n                                \"slug\": \"caffeine\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"C Vitamini Efervesan\",\n                                \"slug\": \"c-vitamini-efervesan\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Melatonin\",\n                                \"slug\": \"melatonin\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Glikozamin Kondroitin MSM\",\n                                \"slug\": \"glucosamine\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Kolajen + Hyaluronik Asit\",\n                                \"slug\": \"collagen-tablet\",\n                                \"order\": 8\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"6d1b9cc0-dccc-4f4c-9606-7d6414d76cfa\",\n                        \"name\": \"VİTAMİNLER\",\n                        \"slug\": \"vitaminler\",\n                        \"order\": 3,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"C Vitamini\",\n                                \"slug\": \"c-vitamini-efervesan\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"B Vitamini\",\n                                \"slug\": \"b12vitamini\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"D Vitamini\",\n                                \"slug\": \"vitamin-d3\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"K Vitamini\",\n                                \"slug\": \"vitamin-k2\",\n                                \"order\": 4\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"8905e76d-b357-4f89-8845-f520cd7c8af7\",\n                        \"name\": \"MİNERALLER\",\n                        \"slug\": \"mineraller\",\n                        \"order\": 4,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Magnezyum\",\n                                \"slug\": \"mag-bisglisinate\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Demir\",\n                                \"slug\": \"iron\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Krom\",\n                                \"slug\": \"chromium\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Selenyum\",\n                                \"slug\": \"selenium\",\n                                \"order\": 4\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"1593fa38-8c5d-4ca3-98e6-5a8826bd1d31\",\n                        \"name\": \"BİTKİSEL ÜRÜNLER\",\n                        \"slug\": \"bitkisel-urunler\",\n                        \"order\": 5,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"Milk Thistle\",\n                                \"slug\": \"milk-thistle\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Tribulus Terrestris\",\n                                \"slug\": \"tribulus-terrestris\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"5-HTP\",\n                                \"slug\": \"5-htp\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"L-Tyrosine\",\n                                \"slug\": \"tyrosine\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"L-Theanine\",\n                                \"slug\": \"theanine\",\n                                \"order\": 5\n                            },\n                            {\n                                \"name\": \"Saw Palmetto\",\n                                \"slug\": \"saw-palmetto\",\n                                \"order\": 6\n                            },\n                            {\n                                \"name\": \"Panax Ginseng\",\n                                \"slug\": \"ginseng\",\n                                \"order\": 7\n                            },\n                            {\n                                \"name\": \"Gingko Biloba\",\n                                \"slug\": \"gingko-biloba\",\n                                \"order\": 8\n                            },\n                            {\n                                \"name\": \"Beta Glucan\",\n                                \"slug\": \"beta-glucan\",\n                                \"order\": 9\n                            }\n                        ]\n                    },\n                    {\n                        \"id\": \"a23349d3-08e7-42ac-b428-e28541337c30\",\n                        \"name\": \"DİĞER\",\n                        \"slug\": \"diger-1\",\n                        \"order\": 6,\n                        \"sub_children\": [\n                            {\n                                \"name\": \"CLA\",\n                                \"slug\": \"cla-softgel\",\n                                \"order\": 1\n                            },\n                            {\n                                \"name\": \"Koenzim Q 10\",\n                                \"slug\": \"coenzyme\",\n                                \"order\": 2\n                            },\n                            {\n                                \"name\": \"Bromelain\",\n                                \"slug\": \"bromelain\",\n                                \"order\": 3\n                            },\n                            {\n                                \"name\": \"Glutatyon\",\n                                \"slug\": \"glutathione\",\n                                \"order\": 4\n                            },\n                            {\n                                \"name\": \"Hyaluronik Asit\",\n                                \"slug\": \"hyaluronic-acid\",\n                                \"order\": 5\n                            }\n                        ]\n                    }\n                ],\n                \"top_sellers\": [\n                    {\n                        \"name\": \"ZMA\",\n                        \"slug\": \"zma\",\n                        \"description\": \"ÇİNKO - MAGNEZYUM - B6 VİTAMİNİ\",\n                        \"picture_src\": \"/media/zma_.webp\"\n                    },\n                    {\n                        \"name\": \"MULTİVİTAMİN\",\n                        \"slug\": \"multivitamin\",\n                        \"description\": \"GÜNLÜK VİTAMİN VE MİNERAL İHTİYACINIZ\",\n                        \"picture_src\": \"/media/multivitamin_.webp\"\n                    },\n                    {\n                        \"name\": \"THERMO BURNER\",\n                        \"slug\": \"burner\",\n                        \"description\": \"KUVVETLİ TERMOJENİK ETKİ\",\n                        \"picture_src\": \"/media/burner_.webp\"\n                    }\n                ]\n            }\n        ],\n        \"status\": \"success\"\n    }\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Statistics",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/:productSlug/rate-statistics",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										":productSlug",
+										"rate-statistics"
+									],
+									"variable": [
+										{
+											"key": "productSlug",
+											"value": "whey-protein"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Comments",
+					"item": [
+						{
+							"name": "Index",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/:productSlug/comments?limit=10&offset=0",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										":productSlug",
+										"comments"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "stars",
+											"value": "3",
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "productSlug",
+											"value": "whey-protein"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Store",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"stars\": 5,\n    \"title\": \"Çok iyiydi\",\n    \"comment\": \"Harikaydı mutlaka deneyin\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/products/:productSlug/comments",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										":productSlug",
+										"comments"
+									],
+									"variable": [
+										{
+											"key": "productSlug",
+											"value": "hyaluronic-acid"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Index",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products?limit=20&offset=0",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "20"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "search",
+									"value": "egg",
+									"disabled": true
+								},
+								{
+									"key": "main_category",
+									"value": "38fb5754-3068-4490-a12a-169fa564c675",
+									"disabled": true
+								},
+								{
+									"key": "sub_category",
+									"value": "04c9618e-553a-43cd-a72e-b646215d23e5",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products?limit=20&offset=20",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "offset",
+											"value": "20"
+										},
+										{
+											"key": "search",
+											"value": "egg",
+											"disabled": true
+										},
+										{
+											"key": "main_category",
+											"value": "38fb5754-3068-4490-a12a-169fa564c675",
+											"disabled": true
+										},
+										{
+											"key": "sub_category",
+											"value": "04c9618e-553a-43cd-a72e-b646215d23e5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:39:11 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "6523"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"count\": 85,\n        \"next\": \"https://fe1111.projects.academy.onlyjs.com/api/v1/products/?limit=20&offset=20\",\n        \"previous\": null,\n        \"results\": [\n            {\n                \"name\": \"WHEY ISOLATE\",\n                \"short_explanation\": \"%90 PROTEİNLİ EN SAF WHEY\",\n                \"slug\": \"whey-isolate\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 749,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 46.81,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-isolate_400_biscuit.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"2\"\n            },\n            {\n                \"name\": \"WHEY PROTEIN\",\n                \"short_explanation\": \"En Saf Whey\",\n                \"slug\": \"whey-protein\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_biscuit.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"3\"\n            },\n            {\n                \"name\": \"PEA PROTEIN\",\n                \"short_explanation\": \"EN POPÜLER VEGAN PROTEİN KAYNAĞI\",\n                \"slug\": \"pea-protein\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 349,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 21.81,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/pea-protein_400_strawberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"4\"\n            },\n            {\n                \"name\": \"MICELLAR CASEIN\",\n                \"short_explanation\": \"YAVAŞ SİNDİRİLEN PROTEİN KAYNAĞI\",\n                \"slug\": \"micellar-casein\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 599,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 37.44,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/micellar-casein_400_strawberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"5\"\n            },\n            {\n                \"name\": \"EGG WHITE POWDER\",\n                \"short_explanation\": \"PROTEİNİN ALTIN STANDARTI\",\n                \"slug\": \"egg-white-powder\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 899,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 56.19,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/egg-white-powder_400_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"6\"\n            },\n            {\n                \"name\": \"MILK PROTEIN\",\n                \"short_explanation\": \"%80 KAZEIN, %20 WHEY PROTEİNİ\",\n                \"slug\": \"milk-protein\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 43.69,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/milk-protein_400_strawberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"7\"\n            },\n            {\n                \"name\": \"SOYA PROTEIN\",\n                \"short_explanation\": \"VEGAN PROTEİN KAYNAĞI\",\n                \"slug\": \"soya-protein\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 449,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 28.06,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/soya-protein_400_strawberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"8\"\n            },\n            {\n                \"name\": \"COLLAGEN\",\n                \"short_explanation\": \"VÜCUTTAKİ EN BOL PROTEİN\",\n                \"slug\": \"collagen\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 449,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 19.69,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/collagen_250_raspberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"9\"\n            },\n            {\n                \"name\": \"MASS GAINER\",\n                \"short_explanation\": \"YÜKSEK KALORİLİ PRATİK ÖĞÜN\",\n                \"slug\": \"mass-gainer\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 999,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 36.96,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/mass-gainer_2500_strawberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"10\"\n            },\n            {\n                \"name\": \"VEGAN GAINER\",\n                \"short_explanation\": \"VEGANLAR İÇİN YÜKSEK PROTEİNLİ VE KALORİLİ ÖĞÜN\",\n                \"slug\": \"vegan-gainer\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 999,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 36.96,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/vegan-gainer_2500_strawberry.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"11\"\n            },\n            {\n                \"name\": \"CREATINE\",\n                \"short_explanation\": \"EN POPÜLER SPORCU TAKVİYESİ\",\n                \"slug\": \"creatine\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 239,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 5.97,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/creatine_120_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"12\"\n            },\n            {\n                \"name\": \"CREATINE CREAPURE\",\n                \"short_explanation\": \"PATENTLİ ALMAN HAMMADDE\",\n                \"slug\": \"creatine-creapure\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 599,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 7.22,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/creatine-creapure_250_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"13\"\n            },\n            {\n                \"name\": \"BCAA 4:1:1\",\n                \"short_explanation\": \"DAHA ÇOK LÖSİN\",\n                \"slug\": \"bcaa-411\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 219,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 9.13,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/bcaa-411_120_apple.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"14\"\n            },\n            {\n                \"name\": \"L-CARNITINE\",\n                \"short_explanation\": \"TOZ FORMU SAYESİNDE KOLAY TÜKETİM\",\n                \"slug\": \"l-carnitine\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 399,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 7.98,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/l-carnitine_150_apple.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"15\"\n            },\n            {\n                \"name\": \"GLUTAMINE\",\n                \"short_explanation\": \"KASTA EN ÇOK BULUNAN AMİNO ASİT\",\n                \"slug\": \"glutamine\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 199,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 8.29,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/glutamine_120_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"16\"\n            },\n            {\n                \"name\": \"EAA+\",\n                \"short_explanation\": \"ESANSİYEL AMİNO ASİT KAYNAĞI\",\n                \"slug\": \"eaa\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 219,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 18.25,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/eaa_120_apple.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"17\"\n            },\n            {\n                \"name\": \"ARGININE\",\n                \"short_explanation\": \"%100 ARGININE\",\n                \"slug\": \"arginine\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 229,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 9.54,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/arginine_120_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"18\"\n            },\n            {\n                \"name\": \"TAURINE\",\n                \"short_explanation\": \"ENERJİ İÇECEKLERİNDE EN YAYGIN KULLANILAN ÜRÜN\",\n                \"slug\": \"taurine\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 249,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 2.49,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/taurine_300_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"19\"\n            },\n            {\n                \"name\": \"LEUCINE\",\n                \"short_explanation\": \"%100 LÖSİN\",\n                \"slug\": \"leucine\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 499,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 8.32,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/leucine_300_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"20\"\n            },\n            {\n                \"name\": \"HEAVY DUTY PRE-WORKOUT\",\n                \"short_explanation\": \"SERT VE UZUN ANTRENMANLAR İÇİN\",\n                \"slug\": \"heavy-duty-preworkout\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 599,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 29.95,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/heavy-duty-preworkout_300_apple.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"21\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "Example 2",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products?limit=20&offset=0&search=egg",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products"
+									],
+									"query": [
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "search",
+											"value": "egg"
+										},
+										{
+											"key": "main_category",
+											"value": "38fb5754-3068-4490-a12a-169fa564c675",
+											"disabled": true
+										},
+										{
+											"key": "sub_category",
+											"value": "04c9618e-553a-43cd-a72e-b646215d23e5",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:39:49 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "404"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"count\": 1,\n        \"next\": null,\n        \"previous\": null,\n        \"results\": [\n            {\n                \"name\": \"EGG WHITE POWDER\",\n                \"short_explanation\": \"PROTEİNİN ALTIN STANDARTI\",\n                \"slug\": \"egg-white-powder\",\n                \"price_info\": {\n                    \"profit\": null,\n                    \"total_price\": 899,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 56.19,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/egg-white-powder_400_.webp\",\n                \"comment_count\": 0,\n                \"average_star\": 0,\n                \"id\": \"6\"\n            }\n        ]\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Show",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/:productSlug",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								":productSlug"
+							],
+							"variable": [
+								{
+									"key": "productSlug",
+									"value": "hyaluronic-acid"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example 1",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/whey-protein",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"whey-protein"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sun, 30 Jun 2024 17:25:00 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "11546"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"3\",\n        \"name\": \"WHEY PROTEIN\",\n        \"slug\": \"whey-protein\",\n        \"short_explanation\": \"En Saf Whey\",\n        \"explanation\": {\n            \"usage\": \"Antrenman sonrası ve sabah uyandığında, su veya süt ile karıştırarak tüketilmesini öneririz. 1 ölçek (yaklaşık 25 gram) ürünü 200 ml su veya süt ile karıştırarak tüketebilirsiniz.\\n\\nÖnemli Not: Ürünün köpürmesi doğaldır ve köpüğün geçmesi için birkaç dakika bekletmek yeterlidir.\\n\\nBunun dışında ihtiyacına göre pratik ve lezzetli bir şekilde gün içerisinde protein tüketmek için idealdir. Bu şekilde günde 1-4 servis kullanılabilir.\\n\\nNe kadar az sıvı kullanırsan tadı o kadar yoğun olacaktır. Damak tadına göre koyacağın sıvı miktarını ayarlayabilirsin.\",\n            \"features\": \"Yüksek proteinli beslenmek spordaki hedeflerine ulaşman için gereklidir. Spor salonuna uzun süre gidip, yeterli kas gelişimi gösterilememesinin en büyük sebeplerinden biri yeterli protein tüketmemektir. Mevcut kas kütlesini korumak ve zayıflandığında formda ve sıkı bir vücut elde etmek için yüksek protein tüketmek gerekir.\",\n            \"description\": \"Biyoyararlılığı ve hızlı sindirimi sayesinde dünyada en popüler protein kaynağıdır. İlave sindirim enzimi ile zenginleştirilmiştir.\\n\\n-   Patentli DigeZyme® ilavelidir.\\n-   Alman menşeli hammadde ile üretilmiştir.\\n-   Normal protein metabolizmasına katkıda bulunan B6 Vitamini ilaveli.\\n-   Birbirinden lezzetli aromalar ile keyifle tüketilebilir.\",\n            \"nutritional_content\": {\n                \"ingredients\": [\n                    {\n                        \"aroma\": \"Bisküvi Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Çikolata Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, Yağı Azaltılmış Kakao, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Choco Nut Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, Yağı Azaltılmış Kakao, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Salted Caramel Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, Himalaya Tuzu, Renklendirici: Karamel, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Hindistan Cevizi Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Muz Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Raspberry Cheesecake Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, Renklendirici: Pancar Kökü Kırmızısı, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, Vanilin, B6 Vitamini (Piridoksin HCL)\"\n                    },\n                    {\n                        \"aroma\": \"Çilek Aromalı\",\n                        \"value\": \"Whey Proteini Konsantresi (Süt), Aroma Verici, Renklendirici: Pancar Kökü Kırmızısı, DigeZyme® (Multi-Enzim Karışımı), Tatlandırıcı: Sukraloz, Emülgatör: Ayçiçek Lesitini, B6 Vitamini (Piridoksin HCL)\"\n                    }\n                ],\n                \"nutrition_facts\": {\n                    \"ingredients\": [\n                        {\n                            \"name\": \"Enerji\",\n                            \"amounts\": [\n                                \"399 kj | 94 kcal\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Protein\",\n                            \"amounts\": [\n                                \"19 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Karbonhidrat\",\n                            \"amounts\": [\n                                \"1.5 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Şeker\",\n                            \"amounts\": [\n                                \"1.5 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Yağ\",\n                            \"amounts\": [\n                                \"1.2 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Doymuş Yağ\",\n                            \"amounts\": [\n                                \"0.7 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Tuz\",\n                            \"amounts\": [\n                                \"0.05 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"B6 Vitamini\",\n                            \"amounts\": [\n                                \"1.4 mg\"\n                            ]\n                        },\n                        {\n                            \"name\": \"DigeZyme®\",\n                            \"amounts\": [\n                                \"50 mg\"\n                            ]\n                        }\n                    ],\n                    \"portion_sizes\": [\n                        \"25 g servis için\"\n                    ]\n                },\n                \"amino_acid_facts\": {\n                    \"ingredients\": [\n                        {\n                            \"name\": \"Glutamik Asit\",\n                            \"amounts\": [\n                                \"13.5 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Lizin\",\n                            \"amounts\": [\n                                \"10.7 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Aspartik Asit\",\n                            \"amounts\": [\n                                \"10.3 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Lösin (BCAA)\",\n                            \"amounts\": [\n                                \"6.4 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Prolin\",\n                            \"amounts\": [\n                                \"6.2 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Treonin\",\n                            \"amounts\": [\n                                \"5.6 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"İzolösin (BCAA)\",\n                            \"amounts\": [\n                                \"4.2 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Serin\",\n                            \"amounts\": [\n                                \"3.8 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Alanin\",\n                            \"amounts\": [\n                                \"3.5 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Valin (BCAA)\",\n                            \"amounts\": [\n                                \"3.4 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Trosin\",\n                            \"amounts\": [\n                                \"1.9 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Histidin\",\n                            \"amounts\": [\n                                \"1.7 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Metiyonin\",\n                            \"amounts\": [\n                                \"1.7 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Fenil Alanin\",\n                            \"amounts\": [\n                                \"1.7 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Glisin\",\n                            \"amounts\": [\n                                \"1.2 g\"\n                            ]\n                        },\n                        {\n                            \"name\": \"Arjinin\",\n                            \"amounts\": [\n                                \"1.1 g\"\n                            ]\n                        }\n                    ],\n                    \"portion_sizes\": [\n                        \"100 g\"\n                    ]\n                }\n            }\n        },\n        \"main_category_id\": \"38fb5754-3068-4490-a12a-169fa564c675\",\n        \"sub_category_id\": \"04c9618e-553a-43cd-a72e-b646215d23e5\",\n        \"tags\": [\n            \"VEJETARYEN\",\n            \"GLUTENSİZ\"\n        ],\n        \"variants\": [\n            {\n                \"id\": \"fb583ba6-62c9-4ae9-ac06-f46c0c01be5e\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Bisküvi\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_biscuit.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"de0de01b-6f0d-49fd-bd79-ae832249e4b1\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Bisküvi\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_biscuit.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"a0038b29-8472-4483-a13e-eb8baf79ddfa\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Bisküvi\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_biscuit.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"fcefbb45-3ee6-4159-abbe-c411e279c4ae\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Çikolata\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_chocolate.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"6b6fb4fd-d99a-4e92-a39e-e162ef6e0ea8\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Çikolata\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_chocolate.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"199429cb-e2f4-4f94-acee-9e6a61e7c0fe\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Çikolata\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_chocolate.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"ce2fd75b-be39-4f0a-96ee-b52708dd1f84\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Muz\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_banana.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"8e2297d4-56e5-4f02-a6ff-5c9368117bc5\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Muz\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_banana.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"b02aaab5-3904-474f-af06-383e21c30bed\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Salted Caramel\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_saltedcaramel.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"b18139b0-fc89-4700-a588-c28c0b50c1e0\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Salted Caramel\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_saltedcaramel.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"09a085c5-3482-4459-beee-1626715f8e70\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Salted Caramel\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_saltedcaramel.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"bb748c75-3972-478f-8fb6-3d38bbf4bb76\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Choco Nut\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_choconut.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"5327ec69-1032-45e3-a14e-70c5cc605fc7\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Hindistan Cevizi\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_coconut.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"f7af529c-e96a-4cf6-998a-562f7b3b9ceb\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Hindistan Cevizi\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_coconut.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"e620d5c3-2da3-4607-878a-42a956bd0147\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Hindistan Cevizi\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_coconut.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"f94a9ab7-78d3-487c-9bef-a02912a7e0cc\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Raspberry Cheesecake\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_raspberrycheesecake.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"d9e5d207-53ab-420e-b65d-b0cbd42ce469\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Raspberry Cheesecake\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_raspberrycheesecake.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"dc694a51-dcb9-437f-bf1f-8701086ad2db\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Raspberry Cheesecake\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_raspberrycheesecake.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"57aba386-b4d4-43af-adca-3aa73c076613\",\n                \"size\": {\n                    \"gram\": 400,\n                    \"pieces\": 1,\n                    \"total_services\": 16\n                },\n                \"aroma\": \"Çilek\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 549,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 31.31,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_400_strawberry.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"a7323fe8-6e42-4208-9105-bc8afe35755a\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 1,\n                    \"total_services\": 64\n                },\n                \"aroma\": \"Çilek\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 1699,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/whey-protein_1600_strawberry.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"236070e2-2002-4f22-aae2-f5ad5b30fa03\",\n                \"size\": {\n                    \"gram\": 1600,\n                    \"pieces\": 2,\n                    \"total_services\": 128\n                },\n                \"aroma\": \"Çilek\",\n                \"price\": {\n                    \"profit\": 199,\n                    \"total_price\": 3398,\n                    \"discounted_price\": 3199,\n                    \"price_per_servings\": 26.55,\n                    \"discount_percentage\": 6\n                },\n                \"photo_src\": \"/media/whey-protein_1600_2_strawberry.webp\",\n                \"is_available\": true\n            }\n        ],\n        \"comment_count\": 0,\n        \"average_star\": 0\n    }\n}"
+						},
+						{
+							"name": "Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/whey-protein",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"whey-protein"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:22:31 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2073"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"id\": \"86\",\n        \"name\": \"HYALURONIC ACID\",\n        \"slug\": \"hyaluronic-acid\",\n        \"short_explanation\": \"CİLTTE NEM TUTUCU GÖREVİ GÖRÜR\",\n        \"explanation\": {\n            \"usage\": \"11 Yaş ve üzeri yetişkinler için; günde 1 kapsül kullanılması tavsiye edilmektedir.\\n\\nGün içerisinde kendi programınıza göre öğünlerden önce veya sonra kullanılması önerilmektedir.\",\n            \"features\": \"Tarım ve Orman Bakanlığı Onaylı.\\nFLAVA Hyaluronik Asit İçeren Takviye Edici Gıda\\nTakviye Edici Gıda Onay Numarası: 012757-04.02.2022\\n\\nHyaluronik Asit; yapılan araştırmalarda cilt üzerindeki olumlu etkisiyle daha sağlıklı ve esnek bir cilde sahip olma yönündeki etkisi gözlemlenmiştir. Bunun yanı sıra yaraların iyileşmesine, gözlerdeki kuruluğa, kemik gelişimine olumlu etkisi olduğu bilinmektedir.\",\n            \"description\": \"Hyaluronik Asit; vücutta doğal olarak cilt, bağ doku ve gözlerde bulunmaktadır.\\n\\n-   Yüksek kaliteli hyaluronik asit içeriği.\\n-   1 kapsülde 120 mg Hyaluronik Asit içerir.\",\n            \"nutritional_content\": {\n                \"ingredients\": [\n                    {\n                        \"aroma\": null,\n                        \"value\": \"Topaklanmayı Önleyici: Yağ Asitlerinin Magnezyum Tuzları, Hyaluronik Asit, Kapsül: Hidroksipropil Metil Selüloz\"\n                    }\n                ],\n                \"nutrition_facts\": {\n                    \"ingredients\": [],\n                    \"portion_sizes\": []\n                },\n                \"amino_acid_facts\": null\n            }\n        },\n        \"main_category_id\": \"cae64711-98b9-48f4-82b4-c5d460718dcf\",\n        \"sub_category_id\": \"a23349d3-08e7-42ac-b428-e28541337c30\",\n        \"tags\": [\n            \"VEJETARYEN\",\n            \"GLUTENSİZ\",\n            \"VEGAN\"\n        ],\n        \"variants\": [\n            {\n                \"id\": \"d204a3bf-754d-4ecb-b9f6-6c22a56495bc\",\n                \"size\": {\n                    \"pieces\": 1,\n                    \"total_services\": 45\n                },\n                \"aroma\": \"Aromasız\",\n                \"price\": {\n                    \"profit\": null,\n                    \"total_price\": 199,\n                    \"discounted_price\": null,\n                    \"price_per_servings\": 4.42,\n                    \"discount_percentage\": null\n                },\n                \"photo_src\": \"/media/hyaluronic-acid_.webp\",\n                \"is_available\": true\n            },\n            {\n                \"id\": \"870e00f4-583f-409d-a91c-f2c7624d0814\",\n                \"size\": {\n                    \"pieces\": 2,\n                    \"total_services\": 90\n                },\n                \"aroma\": \"Aromasız\",\n                \"price\": {\n                    \"profit\": 49,\n                    \"total_price\": 398,\n                    \"discounted_price\": 349,\n                    \"price_per_servings\": 3.88,\n                    \"discount_percentage\": 12\n                },\n                \"photo_src\": \"/media/hyaluronic-acid_2_.webp\",\n                \"is_available\": true\n            }\n        ],\n        \"comment_count\": 0,\n        \"average_star\": 0\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "List Best Sellers",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/products/best-sellers",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"products",
+								"best-sellers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/products/best-sellers",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"products",
+										"best-sellers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "nginx/1.18.0 (Ubuntu)"
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 29 Jun 2024 12:22:43 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1170"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"name\": \"WHEY PROTEIN\",\n            \"short_explanation\": \"En Saf Whey\",\n            \"price_info\": {\n                \"profit\": null,\n                \"total_price\": 549,\n                \"discounted_price\": null,\n                \"price_per_servings\": 31.31,\n                \"discount_percentage\": null\n            },\n            \"photo_src\": \"/media/whey-protein_400_biscuit.webp\",\n            \"comment_count\": 0,\n            \"average_star\": 0\n        },\n        {\n            \"name\": \"CREATINE\",\n            \"short_explanation\": \"EN POPÜLER SPORCU TAKVİYESİ\",\n            \"price_info\": {\n                \"profit\": null,\n                \"total_price\": 239,\n                \"discounted_price\": null,\n                \"price_per_servings\": 5.97,\n                \"discount_percentage\": null\n            },\n            \"photo_src\": \"/media/creatine_120_.webp\",\n            \"comment_count\": 0,\n            \"average_star\": 0\n        },\n        {\n            \"name\": \"PRE-WORKOUT SUPREME\",\n            \"short_explanation\": \"ANTRENMAN ÖNCESİ TAKVİYESİ\",\n            \"price_info\": {\n                \"profit\": null,\n                \"total_price\": 399,\n                \"discounted_price\": null,\n                \"price_per_servings\": 19.95,\n                \"discount_percentage\": null\n            },\n            \"photo_src\": \"/media/preworkout_300_apple.webp\",\n            \"comment_count\": 0,\n            \"average_star\": 0\n        },\n        {\n            \"name\": \"CREAM OF RICE\",\n            \"short_explanation\": \"EN LEZZETLİ PİRİNÇ KREMASI\",\n            \"price_info\": {\n                \"profit\": null,\n                \"total_price\": 239,\n                \"discounted_price\": null,\n                \"price_per_servings\": 11.95,\n                \"discount_percentage\": null\n            },\n            \"photo_src\": \"/media/cream-of-rice_1000_chocolate.webp\",\n            \"comment_count\": 0,\n            \"average_star\": 0\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/cart",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Store",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": \"1\",\n    \"product_variant_id\": \"d204a3bf-754d-4ecb-b9f6-6c22a56495bc\",\n    \"pieces\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/cart",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Destroy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_id\": 3,\n    \"product_variant_id\": \"3897f835-7a4d-4adf-ab0d-b963ec06eb2d\",\n    \"pieces\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/cart",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"cart"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "Index",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders/:orderId",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								":orderId"
+							],
+							"variable": [
+								{
+									"key": "orderId",
+									"value": "1719607499202Ï"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Show Payment Settings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders/payment-settings",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"payment-settings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Calculate Shipment Fee",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/orders/calculate-shipment-fee",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"calculate-shipment-fee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complete Shopping",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"address_id\": \"b65eefde-c9e1-4f9a-bae2-75b45b265ee7\",\n    \"payment_type\": \"credit_cart\",\n    \"card_digits\": \"1234567891234567\",\n    \"card_expiration_date\": \"06-25\",\n    \"card_security_code\": \"123\",\n    \"card_type\": \"VISA\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/orders/complete-shopping",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"orders",
+								"complete-shopping"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{access_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://fe1111.projects.academy.onlyjs.com/api/v1",
+			"type": "string"
+		},
+		{
+			"key": "access_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

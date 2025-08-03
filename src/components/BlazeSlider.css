@@ -1,0 +1,209 @@
+.blaze-slider {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  direction: rtl; /* Sağdan sola doğru yön */
+}
+
+.blaze-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.blaze-track-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.blaze-track {
+  display: flex !important;
+  flex-direction: row !important;
+  transition: transform 1.5s ease-in-out; 
+  width: 100%;
+  position: relative;
+  gap: 0.25rem; 
+  direction: rtl;
+}
+
+.blaze-slide {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0 0.125rem; 
+  transition: transform 1.5s ease-in-out; 
+}
+
+
+.blaze-track {
+  transform: translateX(0) !important;
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+}
+
+
+.blaze-track[style*="flex-direction: column"] {
+  flex-direction: row !important;
+}
+
+.blaze-track[style*="transform: translateY"] {
+  transform: translateX(0) !important;
+}
+
+
+@media (max-width: 575.98px) {
+  .blaze-slide {
+    min-width: 100%;
+    max-width: 100%;
+  }
+  
+  .blaze-track {
+    gap: 0.1rem;
+  }
+  
+  .blaze-slide .card {
+    margin: 0 0.05rem;
+  }
+}
+
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .blaze-slide {
+    min-width: 50%;
+    max-width: 50%;
+  }
+  
+  .blaze-track {
+    gap: 0.125rem;
+  }
+  
+  .blaze-slide .card {
+    margin: 0 0.1rem;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .blaze-slide {
+    min-width: 33.333%;
+    max-width: 33.333%;
+  }
+  
+  .blaze-track {
+    gap: 0.15rem;
+  }
+  
+  .blaze-slide .card {
+    margin: 0 0.125rem;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .blaze-slide {
+    min-width: 25%;
+    max-width: 25%;
+  }
+  
+  .blaze-track {
+    gap: 0.2rem;
+  }
+  
+  .blaze-slide .card {
+    margin: 0 0.15rem;
+  }
+}
+
+
+@media (min-width: 1200px) {
+  .blaze-slide {
+    min-width: 20%;
+    max-width: 20%;
+  }
+  
+  .blaze-track {
+    gap: 0.25rem;
+  }
+  
+  .blaze-slide .card {
+    margin: 0 0.2rem;
+  }
+}
+
+
+.blaze-slider .blaze-track {
+  flex-direction: row !important;
+  gap: 0.25rem !important;
+  direction: rtl !important;
+}
+
+.blaze-slider .blaze-track-container {
+  overflow: hidden !important;
+  direction: rtl; 
+}
+
+
+.blaze-slider {
+  direction: rtl !important;
+}
+
+.blaze-container {
+  direction: rtl;
+}
+
+
+.blaze-slide {
+  direction: ltr;
+  transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
+}
+
+
+.blaze-track-container {
+  overflow: hidden !important;
+  position: relative;
+}
+
+
+.blaze-slide {
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out, transform 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+.blaze-slide .card {
+  margin: 0 0.125rem;
+}
+
+
+.blaze-slide .card {
+  margin: 0 0.125rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+
+@media (max-width: 575.98px) {
+  .blaze-slide .card {
+    margin: 0 0.05rem !important;
+  }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .blaze-slide .card {
+    margin: 0 0.1rem !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .blaze-slide .card {
+    margin: 0 0.125rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .blaze-slide .card {
+    margin: 0 0.15rem !important;
+  }
+} 
