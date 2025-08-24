@@ -1,49 +1,82 @@
-import { Container, Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import type { FooterData } from "../data/footer";
+import React from 'react';
+import { footerData } from '../data/footer';
+import './Footer.css';
 
-interface FooterProps {
-  data: FooterData;
-}
-
-export const Footer = ({ data }: FooterProps) => {
+const Footer: React.FC = () => {
   return (
-    <Container>
-    <footer className="bg-light py-4 mt-5 border-top">
-        <Row>
-          <Col md={6}>
-            <h5>{data.companyName}</h5>
-            <p className="text-muted">
-              {data.companyDescription}
-            </p>
-          </Col>
-          {data.sections.map((section) => (
-            <Col key={section.id} md={3}>
-              <h6>{section.title}</h6>
-              {section.links && (
-                <ul className="list-unstyled">
-                  {section.links.map((link) => (
-                    <li key={link.id}>
-                      <Link to={link.url} className="text-decoration-none text-muted">
-                        {link.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
-            </Col>
-          ))}
-          <Col md={3}>
-            <h6>İletişim</h6>
-            <p className="mb-1">{data.contactInfo.email}</p>
-            <p className="mb-0">{data.contactInfo.phone}</p>
-          </Col>
-        </Row>
-        <hr />
-        <div className="text-center text-muted">
-          © {new Date().getFullYear()} {data.companyName}. Tüm hakları saklıdır.
+    <footer className="footer">
+      <div className="footer-top">
+        <div className="container">
+          <div className="row">
+            <div className="col-lg-6">
+              <div className="footer-guarantee">
+                <div className="stars-rating">
+                  <span className="stars">★★★★★</span>
+                  <span className="rating-count">(140.000+)</span>
+                </div>
+                <h3 className="guarantee-title">LABORATUVAR TESTLİ ÜRÜNLER</h3>
+                <h4 className="guarantee-subtitle">AYNI GÜN & ÜCRETSİZ KARGO</h4>
+                <h5 className="guarantee-text">MEMNUNİYET GARANTİSİ</h5>
+              </div>
+            </div>
+            <div className="col-lg-6">
+              <div className="footer-description">
+                <p className="guarantee-description">
+                  200.000'den fazla ürün yorumumuza dayanarak, ürünlerimizi seveceğinize eminiz. 
+                  Eğer herhangi bir sebeple memnun kalmazsan, bizimle iletişime geçtiğinde çözüme kavuşturacağız.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
+      
+      <div className="footer-main">
+        <div className="container">
+          <div className="row">
+            {footerData.sections.map((section) => (
+              <div key={section.id} className="col-lg-4 col-md-6 mb-4">
+                <div className="footer-section">
+                  {section.id === 'company-info' ? (
+                    <div className="footer-logo">
+                      <img 
+                        src="/src/assets/LOGO_Beyaz.png" 
+                        alt="OJS NUTRITION" 
+                        className="company-logo"
+                      />
+                    </div>
+                  ) : (
+                    <h5 className="footer-section-title">{section.title}</h5>
+                  )}
+                  {section.links && (
+                    <ul className="footer-links">
+                      {section.links.map((link) => (
+                        <li key={link.id}>
+                          <a href={link.url} className="footer-link">
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      
+
+      
+      <div className="footer-copyright">
+        <div className="container">
+          <div className="text-center">
+            <p>Copyright © - Tüm Hakları Saklıdır</p>
+          </div>
+        </div>
+      </div>
     </footer>
-    </Container>
   );
 };
+
+export default Footer; 

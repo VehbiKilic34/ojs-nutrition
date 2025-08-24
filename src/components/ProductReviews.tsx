@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react';
 import { Card, Row, Col, Button, Form, Alert, Spinner, Pagination } from 'react-bootstrap';
 import { getProductComments, getProductStatistics, addProductComment, type ProductComment, type ProductStatistics } from '../services/api';
 
+
 interface ProductReviewsProps {
   productSlug: string;
   averageStar: number;
@@ -351,6 +352,8 @@ export default function ProductReviews({ productSlug, averageStar, commentCount 
           </Pagination>
         </div>
       )}
+
+
     </div>
   );
 } 

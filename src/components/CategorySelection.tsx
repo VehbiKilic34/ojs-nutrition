@@ -1,5 +1,5 @@
 import { Container, Row, Col, Spinner, Alert } from "react-bootstrap";
-import { CategoryCard } from "./CategoryCard";
+import CategoryCard from "./CategoryCard";
 import { useCategories } from "../data/categories";
 
 export const CategorySection = () => {

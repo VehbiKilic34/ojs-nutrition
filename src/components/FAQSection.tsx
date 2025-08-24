@@ -7,7 +7,7 @@ interface FAQSectionProps {
   showCategories?: boolean;
 }
 
-export const FAQSection = ({ 
+const FAQSection = ({ 
   faqItems, 
   title = "Sık Sorulan Sorular",
   showCategories = false 
@@ -21,7 +21,7 @@ export const FAQSection = ({
         }
         acc[category].push(item);
         return acc;
-      }, {} as Record<string, FAQItem[]>)
+      }, {} as Record<string, FAQItem[]>) 
     : null;
 
   return (
@@ -56,4 +56,6 @@ export const FAQSection = ({
       )}
     </Container>
   );
-}; 
+};
+
+export default FAQSection; 

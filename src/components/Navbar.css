@@ -1,0 +1,594 @@
+/* Navbar Styles */
+.header-top {
+  background: #ffffff;
+  border-bottom: 1px solid #dee2e6;
+  padding: 15px 0;
+}
+
+.navbar {
+  background: #ffffff !important;
+  padding: 0;
+  position: relative;
+  z-index: 1030;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.navbar-nav .nav-link {
+  color: #333333 !important;
+  font-weight: 500;
+  padding: 20px 15px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #333333 !important;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.navbar-nav .nav-link.active {
+  color: #333333 !important;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Logo Styles */
+.header-top .d-flex img {
+  transition: transform 0.3s ease;
+}
+
+.header-top .d-flex:hover img {
+  transform: scale(1.05);
+}
+
+/* Search Input Styles */
+.input-group .form-control {
+  border: 1px solid #ced4da;
+  border-right: none;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.input-group .form-control:focus {
+  border-color: #6c757d;
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+.input-group .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #ffffff;
+  padding: 10px 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.input-group .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+  transform: translateY(-1px);
+}
+
+/* Button Styles */
+.btn-light {
+  background-color: #ffffff;
+  border-color: #ced4da;
+  color: #495057;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: #e9ecef;
+  border-color: #adb5bd;
+  color: #495057;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  color: #ffffff;
+  font-weight: 500;
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}
+
+/* Cart Badge Animation */
+.badge {
+  animation: pulse 2s infinite;
+  font-size: 10px;
+  padding: 4px 6px;
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+/* Dropdown Styles */
+.dropdown-menu {
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 0.5rem 0;
+  margin-top: 5px;
+}
+
+.dropdown-item {
+  padding: 0.75rem 1.5rem;
+  transition: all 0.3s ease;
+  border-radius: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(108, 117, 125, 0.1);
+  color: #495057;
+  transform: translateX(5px);
+}
+
+.dropdown-item.active {
+  background-color: rgba(108, 117, 125, 0.2);
+  color: #495057;
+}
+
+.dropdown-header {
+  color: #6c757d;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Info Bar Styles */
+.info-bar {
+  background-color: #f8f9fa !important;
+  border-top: 1px solid #dee2e6;
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.info-bar .text-primary {
+  color: #007bff !important;
+}
+
+.info-bar .text-success {
+  color: #28a745 !important;
+}
+
+.info-bar .text-warning {
+  color: #ffc107 !important;
+}
+
+.info-bar i {
+  font-size: 14px;
+}
+
+/* Mobil ekranda info bar'ı gizle */
+@media (max-width: 767.98px) {
+  .info-bar {
+    display: none !important;
+  }
+}
+
+/* Mobile Menu Styles - Geliştirildi */
+@media (max-width: 991.98px) {
+  .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    background: transparent;
+    color: #ffffff;
+    z-index: 1031;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /* Hamburger İkonu */
+  .hamburger-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .hamburger-icon .line {
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  /* Hamburger açıkken animasyon */
+  .navbar-toggler.open .hamburger-icon .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .navbar-toggler.open .hamburger-icon .line2 {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .navbar-toggler.open .hamburger-icon .line3 {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  .navbar-collapse {
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+    max-height: 80vh;
+    overflow-y: auto;
+    border: 1px solid #dee2e6;
+  }
+  
+  .navbar-collapse.collapse {
+    display: none;
+  }
+  
+  .navbar-collapse.collapsing {
+    height: auto;
+    overflow: hidden;
+    transition: height 0.35s ease;
+  }
+  
+  .navbar-collapse.show {
+    display: block;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-nav .nav-item {
+    width: 100%;
+    margin: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-nav .nav-item:last-child {
+    border-bottom: none;
+  }
+  
+  .navbar-nav .nav-link {
+    padding: 15px 20px;
+    border-radius: 0;
+    margin: 0;
+    width: 100%;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #333333 !important;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333333 !important;
+  }
+  
+  .navbar-nav .nav-link.active {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333333 !important;
+    font-weight: 600;
+  }
+  
+  /* Mobil menüde arama kutusu */
+  .navbar .d-lg-none .input-group {
+    margin: 0 15px;
+  }
+  
+  .navbar .d-lg-none .form-control {
+    border: 1px solid #ced4da;
+    border-right: none;
+  }
+  
+  .navbar .d-lg-none .btn-secondary {
+    border: 1px solid #6c757d;
+    background-color: #6c757d;
+  }
+  
+  /* Mobil menüde hesap ve sepet butonları */
+  .navbar-nav .dropdown {
+    width: 100%;
+  }
+  
+  .navbar-nav .dropdown .btn-link {
+    background: none;
+    border: none;
+    color: #333333 !important;
+    text-decoration: none;
+    width: 100%;
+    text-align: left;
+    padding: 15px 20px;
+    margin: 0;
+    border-radius: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-nav .dropdown .btn-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+    color: #333333 !important;
+  }
+  
+  .navbar-nav .dropdown .btn-link:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  /* Mobil dropdown menü */
+  .navbar-nav .dropdown-menu {
+    position: static !important;
+    transform: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    border: none;
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0.05);
+    box-shadow: none;
+  }
+  
+  .navbar-nav .dropdown-menu .dropdown-item {
+    color: #333333;
+    padding: 12px 20px 12px 40px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .navbar-nav .dropdown-menu .dropdown-item:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    color: #333333;
+  }
+  
+  .navbar-nav .dropdown-menu .dropdown-header {
+    color: rgba(0, 0, 0, 0.7);
+    padding: 12px 20px 12px 40px;
+    font-size: 0.9rem;
+  }
+  
+  .navbar-nav .dropdown-divider {
+    margin: 0.5rem 0;
+    border-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Sepet badge mobil */
+  .navbar-nav .nav-link .badge {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  /* Mobil menü animasyonu */
+  .navbar-collapse.show {
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 767.98px) {
+  .header-top .py-3 {
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+  
+  .info-bar .col-md-4 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .info-bar .col-md-4:last-child {
+    margin-bottom: 0;
+  }
+  
+  /* Mobil menü için ek stiller */
+  .navbar-toggler {
+    margin-right: 0;
+  }
+  
+  .navbar-collapse {
+    max-height: 70vh;
+  }
+}
+
+/* Smooth Transitions */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Focus States */
+.btn:focus,
+.form-control:focus {
+  box-shadow: 0 0 0 0.2rem rgba(108, 117, 125, 0.25);
+}
+
+/* Loading States */
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Navigation Container - Desktop için */
+@media (min-width: 992px) {
+  .navbar-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  /* Navigation Item Hover Effects */
+  .navbar-nav .nav-item {
+    position: relative;
+    flex: 1;
+    display: flex;
+  }
+  
+  .navbar-nav .nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #007bff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+  
+  .navbar-nav .nav-item:hover::after {
+    width: 80%;
+  }
+  
+  .navbar-nav .nav-item.active::after {
+    width: 80%;
+    background-color: #007bff;
+  }
+}
+
+/* Overlay z-index düzeltmesi */
+.navbar {
+  z-index: 1030;
+}
+
+.navbar-toggler {
+  z-index: 1031;
+}
+
+.navbar-collapse {
+  z-index: 1030;
+}
+
+/* Mobil menü açıkken body scroll'u engelle */
+body.menu-open {
+  overflow: hidden;
+}
+
+/* Mobil menü için ek animasyonlar */
+.navbar-nav .nav-link {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar-nav .nav-link:hover {
+  transform: translateX(5px);
+}
+
+/* Mobil menü için loading state */
+.navbar-collapse.collapsing {
+  transition: height 0.35s ease, opacity 0.35s ease;
+}
+
+/* Header Top - Mobil Düzen */
+@media (max-width: 991.98px) {
+  .header-top .navbar-toggler {
+    border: none;
+    padding: 0.5rem;
+    background: transparent;
+    color: #000000;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+  
+  .header-top .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .header-top .hamburger-icon {
+    width: 24px;
+    height: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .header-top .hamburger-icon .line {
+    width: 100%;
+    height: 2px;
+    background-color: #000000;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+  
+  /* Header-top'ta hamburger açıkken animasyon */
+  .header-top .navbar-toggler.open .hamburger-icon .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .header-top .navbar-toggler.open .hamburger-icon .line2 {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .header-top .navbar-toggler.open .hamburger-icon .line3 {
+    transform: rotate(-45deg) translate(7px, -6px);
+  }
+  
+  /* Logo mobilde ortada */
+  .header-top .col-6 {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Arama butonu mobilde sağda */
+  .header-top .col-3:last-child {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

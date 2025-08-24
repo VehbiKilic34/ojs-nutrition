@@ -3,41 +3,48 @@ export interface NavItem {
   label: string;
   path: string;
   isActive?: boolean;
+  children?: NavItem[];
 }
 
 export const navigationItems: NavItem[] = [
   {
-    id: 'home',
-    label: 'Ana Sayfa',
-    path: '/',
+    id: 'protein',
+    label: 'PROTEİN',
+    path: '/protein',
   },
   {
-    id: 'products',
-    label: 'Tüm Ürünler',
-    path: '/urunler',
+    id: 'sports-foods',
+    label: 'SPOR GIDALARI',
+    path: '/spor-gidalari',
   },
   {
-    id: 'about',
-    label: 'Hakkımızda',
-    path: '/hakkimizda',
+    id: 'health',
+    label: 'SAĞLIK',
+    path: '/saglik',
   },
   {
-    id: 'faq',
-    label: 'S.S.S',
-    path: '/sss',
+    id: 'food',
+    label: 'GIDA',
+    path: '/gida',
   },
   {
-    id: 'contact',
-    label: 'İletişim',
-    path: '/iletisim',
+    id: 'vitamin',
+    label: 'VİTAMİN',
+    path: '/vitamin',
   },
   {
-    id: 'test',
-    label: 'Test',
-    path: '/test',
+    id: 'all-products',
+    label: 'TÜM ÜRÜNLER',
+    path: '/tum-urunler',
   },
 ];
 
 export const siteConfig = {
   brandName: 'OJS Nutrition',
+  tagline: 'Sağlıklı Yaşam İçin Kaliteli Besin Takviyeleri',
+  contact: {
+    phone: '+90 (212) 555 0123',
+    email: 'info@ojsnutrition.com',
+    address: 'İstanbul, Türkiye'
+  }
 }; 

@@ -13,20 +13,17 @@
   }
 }
 
-/* Global BlazeSlider yatay düzenleme */
+/* Global BlazeSlider düzenleme */
 .blaze-slider {
-  direction: rtl !important; /* Sağdan sola doğru yön */
+  overflow: hidden;
 }
 
 .blaze-track {
   flex-direction: row !important;
-  transform: translateX(0) !important;
-  direction: rtl !important; /* Sağdan sola doğru yön */
 }
 
 .blaze-slide {
   flex-shrink: 0;
-  direction: ltr; /* Slide içeriğinin normal yönde görünmesi için */
 }
 
 /* Genel Stiller */
@@ -123,10 +120,10 @@ body {
 /* Alt Navbar */
 .navbar-dark {
   background-color: #222222 !important;
-  border-bottom: 1px solid #333;
+  border-bottom: none;
   position: relative;
   z-index: 999;
-  margin-top: 0.4rem; /* Navigation menüsü ile navbar arasında 1 santim boşluk */
+  margin-top: 0;
 }
 
 .navbar-dark .navbar-nav .nav-link {
@@ -145,6 +142,29 @@ body {
 .navbar-dark .navbar-nav .nav-link.active {
   color: #ffc107 !important;
   background-color: rgba(255, 193, 7, 0.1);
+}
+
+/* Banner Container */
+.banner-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  margin-top: 0;
+  padding-top: 0;
+  display: block;
+}
+
+.banner-container img {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  width: 100%;
+  max-width: 1920px;
+  height: auto;
 }
 
 /* Sticky Header */
@@ -330,6 +350,7 @@ body {
 }
 
 .auth-card {
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -596,6 +617,7 @@ body {
   font-size: 0.9rem !important;
   line-height: 1.5 !important;
   cursor: pointer !important;
+  -webkit-user-select: none !important;
   user-select: none !important;
 }
 

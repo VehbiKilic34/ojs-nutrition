@@ -1,0 +1,1966 @@
+/* HomePage.css - Tüm inline CSS'ler buraya taşındı */
+
+/* Kategori Section Spacing */
+.categories-section {
+  margin-bottom: 5rem;
+  width: 100%;
+  max-width: 1800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.categories-subtitle {
+  font-family: Inter;
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+/* Kategori Kartları - Genel Stil */
+.category-card {
+  width: 384.4285583496094px !important;
+  min-width: 384.4285583496094px !important;
+  max-width: 384.4285583496094px !important;
+  height: 157px !important;
+  min-height: 157px !important;
+  max-height: 157px !important;
+  position: relative;
+  top: 5.18px;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 15px;
+  flex-shrink: 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+  opacity: 1;
+  transform: rotate(0deg);
+  box-sizing: border-box;
+}
+
+.category-card:hover {
+  transform: translateY(-5px) rotate(0deg);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  border-color: rgba(0,0,0,0.1);
+}
+
+/* Kategori Kart Wrapper'ları */
+.category-card-wrapper {
+  min-width: 384.4285583496094px !important;
+  max-width: 384.4285583496094px !important;
+  width: 384.4285583496094px !important;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  position: relative;
+  box-sizing: border-box;
+}
+
+/* Kategori Kartları Container */
+.categories-section .d-flex {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 30px !important;
+  flex-wrap: wrap;
+}
+
+/* Bootstrap Grid ile uyumlu */
+.categories-section .row {
+  margin: 0;
+  justify-content: center;
+}
+
+.categories-section .col-6,
+.categories-section .col-sm-4 {
+  padding: 5px;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Varsayılan olarak 3+3 düeni (576px ve üzeri) */
+.categories-section .col-6,
+.categories-section .col-sm-4 {
+  flex: 0 0 33.333333% !important;
+  max-width: 33.333333% !important;
+}
+
+.categories-section .row {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.categories-section .row > div {
+  margin-bottom: 0 !important;
+}
+
+/* Responsive düzen için */
+@media (min-width: 576px) {
+  /* PC, Tablet ve Orta boyut ekranlar - 3+3 düeni */
+  .categories-section .col-6,
+  .categories-section .col-sm-4 {
+    flex: 0 0 33.333333% !important;
+    max-width: 33.333333% !important;
+    padding: 5px;
+  }
+  
+  .categories-section .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 10px !important;
+  }
+  
+  .categories-section .row > div {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 575px) {
+  /* Sadece gerçek mobil ekranlarda - 2+2+2 düeni */
+  .categories-section .col-6,
+  .categories-section .col-sm-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    padding: 4px;
+  }
+  
+  .categories-section .row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 6px !important;
+  }
+  
+  .categories-section .row > div {
+    margin-bottom: 0 !important;
+  }
+}
+
+/* Bootstrap card-body override */
+.category-card .card-body {
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+}
+
+/* Bootstrap card override */
+.category-card.card {
+  width: 384.4285583496094px !important;
+  min-width: 384.4285583496094px !important;
+  max-width: 384.4285583496094px !important;
+  height: 157px !important;
+  min-height: 157px !important;
+  max-height: 157px !important;
+  max-width: none !important;
+  max-height: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Tüm kartlar için genel override */
+.categories-section .category-card,
+.categories-section .category-card.card,
+.categories-section .category-card-wrapper {
+  width: 384.4285583496094px !important;
+  min-width: 384.4285583496094px !important;
+  max-width: 384.4285583496094px !important;
+  height: 157px !important;
+  min-height: 157px !important;
+  max-height: 157px !important;
+}
+
+.category-card-wrapper:hover {
+  transform: scale(1.02);
+}
+
+/* Çok satanlar Section Spacing */
+.best-sellers-section {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  margin-bottom: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+  border: 2px solid #e3f2fd; /* Açık mavi border */
+  border-radius: 15px;
+  margin: 2rem 0; /* Sol ve sağ margin'i kaldır */
+  padding-left: 0; /* Sol padding'i kaldır */
+  padding-right: 0; /* Sağ padding'i kaldır */
+}
+
+.best-sellers-section h2 {
+  font-family: Inter, sans-serif;
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.best-sellers-section p {
+  font-family: Inter, sans-serif;
+  font-size: 1.1rem;
+  color: #666;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.best-sellers-section .bg-warning {
+  background: linear-gradient(90deg, #ffc107, #ffca2c) !important;
+  box-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+}
+
+.best-sellers-section .blaze-slider {
+  margin-top: 1rem;
+  overflow: visible;
+}
+
+.best-sellers-section .blaze-slide {
+  padding: 0.5rem;
+}
+
+.best-sellers-section .card {
+  border: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 200px !important; /* Sabit genişlik */
+  height: 365px !important; /* Sabit yükseklik */
+  max-width: 200px !important; /* Maksimum genişlik */
+  min-width: 200px !important; /* Minimum genişlik */
+  margin: 0 auto;
+  flex-shrink: 0; /* Kartların sıkışmasını önler */
+}
+
+.best-sellers-section .card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.best-sellers-section .card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.best-sellers-section .card:hover .card-title {
+  color: #007bff;
+}
+
+.best-sellers-section .card:hover .btn-outline-primary {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.best-sellers-section .card-img-top {
+  transition: transform 0.3s ease;
+  height: 168px; /* Resim yüksekliği 168px */
+  width: 168px; /* Resim genişliği 168px */
+  object-fit: cover;
+  margin-top: 0.02px; /* Top margin 0.02px */
+  align-self: center; /* Resmi kartın ortasında konumlandır */
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 8px 8px 0 0;
+}
+
+.best-sellers-section .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  text-align: center;
+  background: #ffffff;
+}
+
+.best-sellers-section .card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+  color: #333;
+  text-align: center;
+}
+
+.best-sellers-section .card-text {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  flex: 1;
+  font-weight: 500;
+}
+
+/* Yıldız değerlendirmesi için */
+.best-sellers-section .card .text-muted {
+  color: #95a5a6 !important; /* Açık gri */
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+/* Fiyat stilleri */
+.best-sellers-section .card .fw-bold {
+  color: #2c3e50 !important; /* Koyu mavi-gri */
+  font-weight: 700 !important;
+  font-size: 1.4rem; /* Fiyat boyutu artırıldı */
+}
+
+/* İndirim badge'i için */
+.best-sellers-section .card .badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #e74c3c, #c0392b) !important;
+  box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+  border: none;
+}
+
+/* Üstü çizili fiyat için */
+.best-sellers-section .card .text-decoration-line-through {
+  text-decoration: line-through;
+  color: #e74c3c !important; /* Kırmızı */
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+/* Fiyat container'ı için */
+.best-sellers-section .card .price-container {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+/* Yıldız container'ı için */
+.best-sellers-section .card .rating-container {
+  margin: 0.75rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Yıldızlar için */
+.best-sellers-section .card .stars {
+  display: flex;
+  gap: 2px;
+  margin-bottom: 0.25rem;
+}
+
+.best-sellers-section .card .stars span {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.best-sellers-section .badge {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.6rem;
+  border-radius: 20px;
+}
+
+.best-sellers-section .text-primary {
+  color: #007bff !important;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Çok satanlar için özel slider stilleri */
+.best-sellers-section .blaze-container {
+  padding: 0; /* Container padding'i tamamen kaldır */
+  max-width: 100%;
+  overflow: visible;
+  width: 100%;
+  margin: 0; /* Container margin'i kaldır */
+}
+
+.best-sellers-section .blaze-track {
+  gap: 0.25rem; /* Gap azaltıldı */
+  display: flex;
+  align-items: stretch;
+  justify-content: center; /* Kartları ortala */
+  flex-wrap: nowrap;
+  width: 100%; /* Track genişliğini basitleştir */
+  transform: translateX(0);
+  transition: transform 0.3s ease;
+  position: relative;
+  padding: 0;
+}
+
+.best-sellers-section .blaze-slide {
+  min-width: 0;
+  flex: 0 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  flex-shrink: 0;
+  padding: 0;
+}
+
+.best-sellers-section .blaze-slider {
+  margin-top: 1rem;
+  overflow: visible;
+  width: 100%;
+  position: relative;
+  padding: 0;
+}
+
+.best-sellers-section .blaze-track-container {
+  overflow: visible;
+  position: relative;
+  width: 100%;
+  padding: 0;
+}
+
+/* Çok satanlar için kart boyutlarını sabitle */
+.best-sellers-section .blaze-slide .card {
+  width: 200px !important;
+  height: 365px !important;
+  max-width: 200px !important;
+  min-width: 200px !important;
+  flex-shrink: 0;
+  margin: 0 0.25rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid #e9ecef;
+  border-radius: 12px; /* Köşeleri yuvarlat */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Hafif gölge */
+  transition: all 0.3s ease;
+  background: #ffffff;
+  overflow: hidden; /* Taşan içeriği gizle */
+}
+
+.best-sellers-section .blaze-slide .card:hover {
+  transform: translateY(-8px); /* Yukarı hareket */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15); /* Hover'da gölge artar */
+  border-color: #007bff; /* Hover'da border rengi değişir */
+}
+
+.best-sellers-section .card-img-top {
+  transition: transform 0.3s ease;
+  height: 168px;
+  width: 168px;
+  object-fit: cover;
+  margin-top: 0.02px;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 12px 12px 0 0; /* Üst köşeleri yuvarlat */
+  border-bottom: 1px solid #f0f0f0; /* Alt border ekle */
+  position: relative; /* Position için */
+  top: 0.02px; /* Top: 0.02px */
+  opacity: 1; /* Opacity: 1 */
+  transform: rotate(0deg); /* Angle: 0 deg */
+}
+
+.best-sellers-section .card:hover .card-img-top {
+  transform: scale(1.05); /* Hover'da resim büyür */
+}
+
+.best-sellers-section .card-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1.25rem 1rem 1rem 1rem; /* Padding artırıldı */
+  text-align: center;
+  background: #ffffff;
+  position: relative;
+}
+
+.best-sellers-section .card-title {
+  font-size: 1.1rem; /* Font boyutu artırıldı */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  color: #2c3e50; /* Koyu mavi-gri */
+  text-align: center;
+  min-height: 2.6rem; /* Sabit yükseklik */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.best-sellers-section .card-text {
+  font-size: 0.9rem;
+  color: #7f8c8d; /* Açık gri */
+  line-height: 1.4;
+  margin-bottom: 1rem;
+  flex: 1;
+  font-weight: 500;
+  min-height: 2.5rem; /* Sabit yükseklik */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Yıldız değerlendirmesi için */
+.best-sellers-section .card .text-muted {
+  color: #666 !important;
+  font-weight: 500;
+}
+
+/* Fiyat stilleri */
+.best-sellers-section .card .fw-bold {
+  color: #333 !important;
+  font-weight: 700 !important;
+}
+
+/* İndirim badge'i için */
+.best-sellers-section .card .badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Üstü çizili fiyat için */
+.best-sellers-section .card .text-decoration-line-through {
+  text-decoration: line-through;
+  color: #dc3545 !important;
+}
+
+/* Slider navigasyon butonları için */
+.best-sellers-section .blaze-slider .blaze-prev,
+.best-sellers-section .blaze-slider .blaze-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 123, 255, 0.8);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.best-sellers-section .blaze-slider .blaze-prev {
+  left: 10px;
+}
+
+.best-sellers-section .blaze-slider .blaze-next {
+  right: 10px;
+}
+
+/* Slider'ın çalışması için ek stiller */
+.best-sellers-section .blaze-slider .blaze-track {
+  will-change: transform; /* Performans optimizasyonu */
+}
+
+.best-sellers-section .blaze-slider .blaze-track:hover {
+  cursor: grab;
+}
+
+.best-sellers-section .blaze-slider .blaze-track:active {
+  cursor: grabbing;
+}
+
+.best-sellers-section .btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  transition: all 0.3s ease;
+}
+
+.best-sellers-section .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+/* Müşteri Yorumları Section */
+.customer-reviews-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  margin-bottom: 0;
+}
+
+/* Reviews Header */
+.reviews-header {
+  padding: 0 20px;
+}
+
+.reviews-title {
+  font-family: Inter;
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  text-transform: uppercase;
+}
+
+.stars-rating {
+  display: flex;
+  align-items: center;
+}
+
+.rating-text {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  text-decoration: underline;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.rating-text:hover {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.navigation-arrows {
+  display: flex;
+  gap: 10px;
+}
+
+.nav-arrow {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e9ecef;
+  border-radius: 50%;
+  background: white;
+  color: #666;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+  background: #f8f9fa;
+  border-color: #dee2e6;
+}
+
+.header-separator {
+  border: none;
+  height: 2px;
+  background: #e9ecef;
+  margin: 0;
+}
+
+/* Review Cards */
+.review-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: 200px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.review-date {
+  font-family: Inter;
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 8px;
+}
+
+.review-summary {
+  font-family: Inter;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.review-text {
+  font-family: Inter;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+}
+
+/* PROTEİN Kartı */
+.protein-card {
+  background-color: #7EA0A2 !important;
+}
+
+.protein-card.card {
+  background-color: #7EA0A2 !important;
+}
+
+.protein-image {
+  width: 294px;
+  height: 158px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.protein-text {
+  position: absolute;
+  width: 165.51785278320312px;
+  height: 32px;
+  top: 57.18px;
+  right: 20px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.protein-text span {
+  color: #000000;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* VİTAMİNLER Kartı */
+.vitaminler-card {
+  background-color: #FDE8D7 !important;
+}
+
+.vitaminler-card.card {
+  background-color: #FDE8D7 !important;
+}
+
+.vitaminler-image {
+  width: 294px;
+  height: 158px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.vitaminler-text {
+  position: absolute;
+  width: 132.14732360839844px;
+  height: 64px;
+  top: 34.18px;
+  right: 20px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.vitaminler-text span {
+  color: #000000;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* SAĞLIK Kartı */
+.saglik-card {
+  background-color: #CCCBC6 !important;
+}
+
+.saglik-card.card {
+  background-color: #CCCBC6 !important;
+}
+
+.saglik-image {
+  width: 294px;
+  height: 158px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.saglik-text {
+  position: absolute;
+  width: 132.14732360839844px;
+  height: 64px;
+  top: 34.18px;
+  right: 20px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.saglik-text span {
+  color: #000000;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* SPOR GIDALARI Kartı */
+.spor-gidalari-card {
+  background-color: #D9D8D3 !important;
+}
+
+.spor-gidalari-card.card {
+  background-color: #D9D8D3 !important;
+}
+
+.spor-gidalari-image {
+  width: 294px;
+  height: 158px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.spor-gidalari-text {
+  position: absolute;
+  width: 190.8794708251953px;
+  height: 64px;
+  top: 34.18px;
+  right: 20px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.spor-gidalari-text span {
+  color: #000000;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* GIDA Kartı */
+.gida-card {
+  background-color: #72B4CE !important;
+}
+
+.gida-card.card {
+  background-color: #72B4CE !important;
+}
+
+.gida-image {
+  width: 294px;
+  height: 158px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.gida-text {
+  position: absolute;
+  width: 96.10713958740234px;
+  height: 32px;
+  top: 34.18px;
+  right: 20px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.gida-text span {
+  color: #000000;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* TÜM ÜRÜNLER Kartı */
+.tum-urunler-card {
+  background-color: white !important;
+}
+
+.tum-urunler-card.card {
+  background-color: white !important;
+}
+
+.katman-1-image {
+  width: 384.4285583496094px;
+  height: 157px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.amino-asit-image {
+  width: 180px;
+  height: 120px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  object-fit: cover;
+  border-radius: 8px;
+  opacity: 1;
+}
+
+.tum-urunler-text {
+  position: absolute;
+  width: 176.19642639160156px;
+  height: 64px;
+  top: 34.18px;
+  right: 20px;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  text-align: right;
+  vertical-align: middle;
+}
+
+.tum-urunler-text span {
+  color: #000000;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: right;
+  vertical-align: middle;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.8);
+}
+
+/* İNCELE Butonları - Tüm Kartlarda */
+.incele-button {
+  position: absolute;
+  width: 160.17857360839844px;
+  height: 34px;
+  bottom: 20px;
+  right: 20px;
+  opacity: 1;
+  border-radius: 10px;
+  border: none;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: Inter;
+  font-weight: 900;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 32px;
+  letter-spacing: 0%;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.incele-button:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Kart Container'ları */
+.card-body {
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive tasarım için */
+@media (max-width: 1200px) {
+  .categories-section {
+    padding: 1.5rem;
+    border-width: 1.5px;
+    border-radius: 12px;
+  }
+  
+  .categories-title {
+    font-size: 2.2rem;
+  }
+  
+  .categories-subtitle {
+    font-size: 1rem;
+  }
+  
+  .category-card,
+  .category-card.card,
+  .categories-section .category-card,
+  .categories-section .category-card.card {
+    width: 384.4285583496094px !important;
+    min-width: 384.4285583496094px !important;
+    max-width: 384.4285583496094px !important;
+    height: 157px !important;
+    min-height: 157px !important;
+    max-height: 157px !important;
+    background-color: inherit !important;
+  }
+  
+  .category-card-wrapper,
+  .categories-section .category-card-wrapper {
+    min-width: 384.4285583496094px !important;
+    max-width: 384.4285583496094px !important;
+    width: 384.4285583496094px !important;
+  }
+  
+  .category-card img {
+    width: 294px;
+    height: 158px;
+  }
+  
+  .incele-button {
+    width: 140px;
+    height: 30px;
+    font-size: 16px;
+    bottom: 15px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 992px) {
+  /* Tablet ekranı - 2-2-2 düzeni */
+  .categories-section {
+    padding: 1.5rem;
+    border-width: 1.5px;
+    border-radius: 12px;
+  }
+  
+  .categories-title {
+    font-size: 2rem;
+  }
+  
+  .categories-subtitle {
+    font-size: 0.95rem;
+  }
+  
+  .category-card,
+  .category-card.card,
+  .categories-section .category-card,
+  .categories-section .category-card.card {
+    width: 320px !important;
+    min-width: 320px !important;
+    max-width: 320px !important;
+    height: 140px !important;
+    min-height: 140px !important;
+    max-height: 140px !important;
+    background-color: inherit !important;
+  }
+  
+  .category-card-wrapper,
+  .categories-section .category-card-wrapper {
+    min-width: 320px !important;
+    max-width: 320px !important;
+    width: 320px !important;
+  }
+  
+  .category-card img {
+    width: 250px;
+    height: 140px;
+  }
+  
+  .incele-button {
+    width: 120px;
+    height: 28px;
+    font-size: 14px;
+    bottom: 12px;
+    right: 12px;
+  }
+  
+  /* Tablet'te 2-2-2 düzeni */
+  .categories-section .d-flex {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 20px !important;
+  }
+  
+  .categories-section .d-flex > div {
+    flex: 0 0 auto !important;
+    margin-bottom: 20px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .categories-section {
+    padding: 1rem;
+    border-width: 1px;
+    border-radius: 10px;
+    margin: 0 0.5rem;
+  }
+  
+  .categories-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+  }
+  
+  .categories-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .category-card,
+  .category-card.card,
+  .categories-section .category-card,
+  .categories-section .category-card.card {
+    width: 384.4285583496094px !important;
+    min-width: 384.4285583496094px !important;
+    max-width: 384.4285583496094px !important;
+    height: 157px !important;
+    min-height: 157px !important;
+    max-height: 157px !important;
+    margin: 0 8px;
+    background-color: inherit !important;
+  }
+  
+  .category-card-wrapper,
+  .categories-section .category-card-wrapper {
+    min-width: 384.4285583496094px !important;
+    max-width: 384.4285583496094px !important;
+    width: 384.4285583496094px !important;
+  }
+  
+  .category-card img {
+    width: 294px;
+    height: 158px;
+  }
+  
+  .incele-button {
+    width: 120px;
+    height: 28px;
+    font-size: 14px;
+    bottom: 10px;
+    right: 10px;
+  }
+  
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 20px;
+  }
+  
+  /* Mobilde kartları dikey olarak düzenle */
+  .categories-section .d-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem !important;
+  }
+  
+  .category-card-wrapper {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Cep telefonu ekranı - 1-1-1-1-1-1 düzeni */
+  .categories-section {
+    padding: 0.75rem;
+    border-width: 1px;
+    border-radius: 8px;
+    margin: 0 0.25rem;
+  }
+  
+  .categories-title {
+    font-size: 1.5rem;
+    letter-spacing: 0.5px;
+  }
+  
+  .categories-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .category-card,
+  .category-card.card,
+  .categories-section .category-card,
+  .categories-section .category-card.card {
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 300px !important;
+    height: 120px !important;
+    min-height: 120px !important;
+    max-height: 120px !important;
+    background-color: inherit !important;
+  }
+  
+  .category-card-wrapper,
+  .categories-section .category-card-wrapper {
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 300px !important;
+  }
+  
+  .category-card img {
+    width: 220px;
+    height: 120px;
+  }
+  
+  .incele-button {
+    width: 100px;
+    height: 26px;
+    font-size: 12px;
+    bottom: 8px;
+    right: 8px;
+  }
+  
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 18px;
+  }
+  
+  /* Cep telefonunda 1-1-1-1-1-1 düzeni */
+  .categories-section .d-flex {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 15px !important;
+  }
+  
+  .category-card-wrapper {
+    margin-bottom: 15px !important;
+    width: 100% !important;
+  }
+  
+  /* Çok küçük ekranlarda kartları tam genişlikte göster */
+  .categories-section {
+    padding: 0.5rem;
+  }
+  
+  .category-card {
+    margin: 0 4px;
+  }
+}
+
+/* Tablet için responsive tasarım - 3+3 düzeni */
+@media (max-width: 992px) {
+  .best-sellers-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .best-sellers-section p {
+    font-size: 1rem;
+  }
+  
+  .best-sellers-section .blaze-container {
+    padding: 0; /* Container padding'i kaldır */
+  }
+  
+  .best-sellers-section .blaze-track {
+    gap: 0.5rem; /* Tablet'te daha fazla boşluk */
+    width: calc(6 * 200px + 5 * 0.5rem); /* 6 kart için genişlik hesaplaması */
+    justify-content: flex-start; /* Sola hizala */
+  }
+  
+  .best-sellers-section .blaze-slide .card {
+    width: 200px !important;
+    height: 365px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+    margin: 0 0.25rem;
+  }
+  
+  .best-sellers-section .skeleton-card {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* Mobil için responsive tasarım - 2+2+2 düeni */
+@media (max-width: 768px) {
+  .best-sellers-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .best-sellers-section p {
+    font-size: 1rem;
+  }
+  
+  .best-sellers-section {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+  
+  .best-sellers-section .blaze-container {
+    padding: 0; /* Container padding'i kaldır */
+  }
+  
+  .best-sellers-section .blaze-track {
+    gap: 0.5rem; /* Mobilde daha fazla boşluk */
+    width: calc(6 * 200px + 5 * 0.5rem); /* 6 kart için genişlik hesaplaması */
+    justify-content: flex-start; /* Sola hizala */
+  }
+  
+  .best-sellers-section .blaze-slide .card {
+    width: 200px !important;
+    height: 365px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+    margin: 0 0.25rem;
+  }
+  
+  .best-sellers-section .py-5 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  
+  .best-sellers-section .card-img-top {
+    height: 168px; /* Height: 168px */
+    width: 168px; /* Width: 168px */
+    margin-top: 0.02px; /* Top: 0.02px */
+    top: 0.02px; /* Top: 0.02px */
+    opacity: 1; /* Opacity: 1 */
+    transform: rotate(0deg); /* Angle: 0 deg */
+  }
+  
+  .best-sellers-section .skeleton-card {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .best-sellers-section h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .best-sellers-section p {
+    font-size: 0.9rem;
+  }
+  
+  .best-sellers-section .bg-warning {
+    width: 50px !important;
+    height: 2px !important;
+  }
+  
+  .best-sellers-section .blaze-container {
+    padding: 0; /* Container padding'i kaldır */
+  }
+  
+  .best-sellers-section .blaze-track {
+    gap: 0.5rem; /* Küçük mobilde daha fazla boşluk */
+    width: calc(6 * 200px + 5 * 0.5rem); /* 6 kart için genişlik hesaplaması */
+    justify-content: flex-start; /* Sola hizala */
+  }
+  
+  .best-sellers-section .blaze-slide .card {
+    width: 200px !important;
+    height: 365px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+    border-radius: 10px; /* Mobilde daha küçük border-radius */
+    margin: 0 0.25rem;
+  }
+  
+  .best-sellers-section .card-img-top {
+    height: 168px; /* Height: 168px */
+    width: 168px; /* Width: 168px */
+    border-radius: 10px 10px 0 0;
+    margin-top: 0.02px; /* Top: 0.02px */
+    top: 0.02px; /* Top: 0.02px */
+    opacity: 1; /* Opacity: 1 */
+    transform: rotate(0deg); /* Angle: 0 deg */
+  }
+  
+  /* Logo overlay mobil */
+  .best-sellers-section .card-img-top::after {
+    top: 100px; /* Mobil top */
+    left: 200px; /* Mobil left */
+    width: 200px; /* Mobil width */
+    height: 45px; /* Mobil height */
+  }
+  
+  .best-sellers-section .card-title {
+    font-size: 1rem;
+    min-height: 2.4rem;
+  }
+  
+  .best-sellers-section .card-text {
+    font-size: 0.85rem;
+    min-height: 2.4rem;
+  }
+  
+  .best-sellers-section .card-body {
+    padding: 1rem 0.75rem 0.75rem 0.75rem;
+  }
+  
+  .best-sellers-section .fw-bold {
+    font-size: 1.3rem;
+  }
+  
+  .best-sellers-section .badge {
+    top: 8px;
+    right: 8px;
+    font-size: 0.7rem;
+    padding: 0.4rem 0.6rem;
+  }
+  
+  .best-sellers-section .py-5 {
+    padding-top: 1.5rem !important;
+    padding-bottom: 1.5rem !important;
+  }
+  
+  .best-sellers-section .skeleton-card {
+    max-width: 200px;
+  }
+  
+  .best-sellers-section .skeleton-image {
+    height: 168px; /* Height: 168px */
+    width: 168px; /* Width: 168px */
+  }
+  
+  .best-sellers-section .skeleton-title {
+    height: 18px;
+  }
+  
+  .best-sellers-section .skeleton-text {
+    height: 14px;
+  }
+  
+  .best-sellers-section .skeleton-price {
+    height: 20px;
+  }
+  
+  .best-sellers-section .skeleton-button {
+    height: 32px;
+  }
+}
+
+/* Çok satanlar için özel animasyonlar */
+@keyframes slideInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.best-sellers-section .blaze-slide {
+  animation: slideInFromTop 0.6s ease-out;
+}
+
+.best-sellers-section .blaze-slide:nth-child(1) { animation-delay: 0.1s; }
+.best-sellers-section .blaze-slide:nth-child(2) { animation-delay: 0.2s; }
+.best-sellers-section .blaze-slide:nth-child(3) { animation-delay: 0.3s; }
+.best-sellers-section .blaze-slide:nth-child(4) { animation-delay: 0.4s; }
+.best-sellers-section .blaze-slide:nth-child(5) { animation-delay: 0.5s; }
+.best-sellers-section .blaze-slide:nth-child(6) { animation-delay: 0.6s; }
+
+/* Başlık animasyonu */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.best-sellers-section .text-center {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Çok satanlar loading state */
+.best-sellers-section .spinner-border {
+  color: #007bff !important;
+  border-width: 0.25em;
+}
+
+.best-sellers-section .text-muted {
+  color: #6c757d !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.best-sellers-section .py-5 {
+  padding-top: 3rem !important;
+  padding-bottom: 3rem !important;
+}
+
+/* Loading animasyonu */
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.best-sellers-section .spinner-border {
+  animation: pulse 2s infinite;
+}
+
+/* Çok satanlar için özel hover efektleri */
+.best-sellers-section .card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.best-sellers-section .card:hover .card-img-top {
+  transform: scale(1.08);
+}
+
+.best-sellers-section .card:hover .card-title {
+  color: #007bff;
+  transform: translateY(-2px);
+}
+
+.best-sellers-section .card:hover .card-text {
+  color: #495057;
+}
+
+.best-sellers-section .card:hover .badge {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+}
+
+.best-sellers-section .card:hover .text-primary {
+  color: #0056b3 !important;
+  transform: scale(1.05);
+}
+
+.best-sellers-section .card:hover .btn-outline-primary {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+}
+
+/* Smooth transitions */
+.best-sellers-section .card * {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Çok satanlar için özel focus efektleri */
+.best-sellers-section .card:focus-within {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  transform: translateY(-5px);
+}
+
+.best-sellers-section .btn:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.best-sellers-section .card:focus-within .card-title {
+  color: #007bff;
+}
+
+/* Keyboard navigation için */
+.best-sellers-section .card:focus-visible {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+}
+
+/* Reduced motion için */
+@media (prefers-reduced-motion: reduce) {
+  .best-sellers-section .card,
+  .best-sellers-section .card *,
+  .best-sellers-section .blaze-slide {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  .best-sellers-section .card:hover {
+    transform: none;
+  }
+}
+
+/* Çok satanlar için skeleton loading */
+.best-sellers-section .skeleton-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+/* Skeleton loading kartları için */
+.best-sellers-section .skeleton-card {
+  width: 200px !important;
+  height: 365px !important;
+  max-width: 200px !important;
+  min-width: 200px !important;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e9ecef;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.best-sellers-section .skeleton-image {
+  height: 168px; /* Height: 168px */
+  width: 168px; /* Width: 168px */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  margin: 0.02px auto 0 auto; /* Top: 0.02px */
+  border-radius: 12px 12px 0 0;
+  position: relative; /* Position için */
+  top: 0.02px; /* Top: 0.02px */
+  opacity: 1; /* Opacity: 1 */
+  transform: rotate(0deg); /* Angle: 0 deg */
+}
+
+.best-sellers-section .skeleton-body {
+  flex: 1;
+  padding: 1.25rem 1rem 1rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.best-sellers-section .skeleton-title {
+  height: 1.1rem;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.best-sellers-section .skeleton-text {
+  height: 0.9rem;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.best-sellers-section .skeleton-rating {
+  height: 1rem;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.best-sellers-section .skeleton-price {
+  height: 1.4rem;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  border-radius: 4px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Çok satanlar error state */
+.best-sellers-section .text-danger {
+  color: #dc3545 !important;
+}
+
+.best-sellers-section .bi-exclamation-triangle {
+  color: #dc3545;
+  animation: pulse 2s infinite;
+}
+
+.best-sellers-section .btn-outline-primary {
+  border-color: #007bff;
+  color: #007bff;
+  transition: all 0.3s ease;
+}
+
+.best-sellers-section .btn-outline-primary:hover {
+  background-color: #007bff;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.best-sellers-section .btn-outline-primary:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Çok satanlar empty state */
+.best-sellers-section .bi-inbox {
+  color: #6c757d;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.best-sellers-section .btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.best-sellers-section .btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.best-sellers-section .btn-primary:focus {
+  outline: 3px solid #007bff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Çok satanlar için gelişmiş responsive tasarım - 3+3 düeni */
+@media (max-width: 1200px) {
+  .best-sellers-section .blaze-container {
+    padding: 0; /* Container padding'i kaldır */
+  }
+  
+  .best-sellers-section .blaze-track {
+    gap: 0.5rem; /* Tablet'te daha fazla boşluk */
+    width: calc(6 * 200px + 5 * 0.5rem); /* 6 kart için genişlik hesaplaması */
+    justify-content: flex-start; /* Sola hizala */
+  }
+  
+  .best-sellers-section .blaze-slide .card {
+    width: 200px !important;
+    height: 365px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+    margin: 0 0.25rem;
+  }
+  
+  .best-sellers-section .card-img-top {
+    height: 168px; /* Height: 168px */
+    width: 168px; /* Width: 168px */
+    margin-top: 0.02px; /* Top: 0.02px */
+    top: 0.02px; /* Top: 0.02px */
+    opacity: 1; /* Opacity: 1 */
+    transform: rotate(0deg); /* Angle: 0 deg */
+  }
+  
+  /* Logo overlay responsive */
+  .best-sellers-section .card-img-top::after {
+    top: 120px; /* Responsive top */
+    left: 280px; /* Responsive left */
+    width: 280px; /* Responsive width */
+    height: 64px; /* Responsive height */
+  }
+}
+
+@media (max-width: 992px) {
+  .best-sellers-section h2 {
+    font-size: 2.2rem;
+  }
+  
+  .best-sellers-section p {
+    font-size: 1rem;
+  }
+  
+  .best-sellers-section .blaze-container {
+    padding: 0; /* Container padding'i kaldır */
+  }
+  
+  .best-sellers-section .blaze-track {
+    gap: 0.25rem; /* Gap azaltıldı */
+    width: 100%; /* Track genişliğini basitleştir */
+  }
+  
+  .best-sellers-section .blaze-slide .card {
+    width: 200px !important;
+    height: 365px !important;
+    max-width: 200px !important;
+    min-width: 200px !important;
+  }
+  
+  .best-sellers-section .card-img-top {
+    height: 168px; /* Height: 168px */
+    width: 168px; /* Width: 168px */
+  }
+  
+  .best-sellers-section .skeleton-card {
+    max-width: 200px;
+    margin: 0 auto;
+  }
+}
+
+/* Logo overlay için - 65.27.895.png resminin üzerine */
+.best-sellers-section .card-img-top {
+  position: relative; /* Logo overlay için */
+}
+
+.best-sellers-section .card-img-top::after {
+  content: '';
+  position: absolute;
+  top: 158.02px; /* Top: 158.02px */
+  left: 359px; /* Left: 359px */
+  width: 360px; /* Width: 360px */
+  height: 82px; /* Height: 82px */
+  background-image: url('/src/assets/LOGO_Beyaz.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1; /* Opacity: 1 */
+  transform: rotate(0deg); /* Angle: 0 deg */
+  pointer-events: none; /* Logo tıklanabilir olmasın */
+  z-index: 10; /* Logo resmin üzerinde görünsün */
+}
+
+/* 6527895.png resmi üzerine logo overlay */
+.promo-image-section {
+  position: relative;
+}
+
+.promo-image-section .text-center {
+  position: relative;
+}
+
+.promo-image-section img {
+  position: relative;
+}
+
+.promo-image-section::after {
+  content: '';
+  position: absolute;
+  top: 50%; /* Resmin tam ortası */
+  left: 35.9%; /* Bir logo uzunluğu daha sola kaydırıldı (40.6% - 9.4%) */
+  transform: translate(-50%, -50%) rotate(0deg); /* Merkeze hizala */
+  width: 9.4%; /* Resmin genişliğinin %9.4'ü (180/1920) */
+  height: 8.5%; /* Resmin yüksekliğinin %8.5'i (41/480) */
+  background-image: url('/src/assets/LOGO_Beyaz.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 1; /* Orijinal opacity */
+  pointer-events: none; /* Logo tıklanabilir olmasın */
+  z-index: 10; /* Logo resmin üzerinde görünsün */
+}
+
+/* 6527895.png resmi üzerine logo overlay responsive */
+@media (max-width: 1200px) {
+  .promo-image-section::after {
+    top: 50%; /* Resmin tam ortası */
+    left: 36.5%; /* Large tablet için hafif ayarlama */
+    transform: translate(-50%, -50%) rotate(0deg); /* Merkeze hizala */
+    width: 10%; /* Biraz daha büyük */
+    height: 9%; /* Biraz daha büyük */
+  }
+}
+
+@media (max-width: 768px) {
+  .promo-image-section::after {
+    top: 50%; /* Resmin tam ortası */
+    left: 37.5%; /* Tablet için ayarlama */
+    transform: translate(-50%, -50%) rotate(0deg); /* Merkeze hizala */
+    width: 12%; /* Tablet'te daha büyük */
+    height: 10.5%; /* Tablet'te daha büyük */
+  }
+}
+
+@media (max-width: 576px) {
+  .promo-image-section::after {
+    top: 50%; /* Resmin tam ortası */
+    left: 38.5%; /* Mobil için ayarlama */
+    transform: translate(-50%, -50%) rotate(0deg); /* Merkeze hizala */
+    width: 15%; /* Mobilde en büyük */
+    height: 13%; /* Mobilde en büyük */
+  }
+}
+

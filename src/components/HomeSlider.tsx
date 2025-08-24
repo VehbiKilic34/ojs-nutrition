@@ -10,7 +10,7 @@ interface HomeSliderProps {
   transitionDuration?: number;
 }
 
-export const HomeSlider = ({
+const HomeSlider = ({
   banners,
   autoplayInterval = 5000,
   transitionDuration = 1000
@@ -68,3 +68,5 @@ export const HomeSlider = ({
     </section>
   );
 };
+
+export default HomeSlider;
