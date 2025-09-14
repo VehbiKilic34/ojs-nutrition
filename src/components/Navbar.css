@@ -6,35 +6,62 @@
 }
 
 .navbar {
-  background: #ffffff !important;
+  background: #222222 !important;
   padding: 0;
+  height: 35px;
   position: relative;
   z-index: 1030;
   border-bottom: 1px solid #dee2e6;
 }
 
+/* Navbar arka plan rengini zorla uygula */
+.navbar.navbar-expand-lg {
+  background: #222222 !important;
+}
+
+.navbar.navbar-light {
+  background: #222222 !important;
+}
+
+/* Tüm navbar varyantları için */
+.navbar,
+.navbar.navbar-expand-lg,
+.navbar.navbar-light,
+.navbar.bg-white {
+  background: #222222 !important;
+}
+
 .navbar-nav .nav-link {
-  color: #333333 !important;
-  font-weight: 500;
-  padding: 20px 15px;
+  color: #ffffff !important;
+  font-family: Inter;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 13.13px;
+  line-height: 35px;
+  letter-spacing: 0%;
+  padding: 8px 15px;
   transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  text-transform: none;
   margin: 0;
   text-align: center;
+  vertical-align: middle;
   flex: 1;
   min-width: 0;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .navbar-nav .nav-link:hover {
-  color: #333333 !important;
-  background-color: rgba(0, 0, 0, 0.05);
+  color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .navbar-nav .nav-link.active {
-  color: #333333 !important;
+  color: #ffffff !important;
   font-weight: 600;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 /* Logo Styles */
@@ -130,6 +157,29 @@
   border-radius: 8px;
   padding: 0.5rem 0;
   margin-top: 5px;
+}
+
+/* Navbar dropdown menüleri için özel stiller */
+.navbar .dropdown-menu {
+  background: #222222;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 0;
+}
+
+.navbar .dropdown-item {
+  color: #ffffff;
+  padding: 8px 20px;
+  transition: all 0.3s ease;
+}
+
+.navbar .dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transform: translateX(5px);
+}
+
+.navbar .dropdown-toggle::after {
+  border-top-color: #ffffff;
 }
 
 .dropdown-item {
@@ -243,7 +293,7 @@
   }
   
   .navbar-collapse {
-    background: #ffffff;
+    background: #222222;
     border-radius: 0;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-top: 0;
@@ -298,17 +348,24 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: #333333 !important;
+    color: #ffffff !important;
+    font-family: Inter;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 13.13px;
+    line-height: 35px;
+    letter-spacing: 0%;
+    vertical-align: middle;
   }
   
   .navbar-nav .nav-link:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #333333 !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
   }
   
   .navbar-nav .nav-link.active {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #333333 !important;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff !important;
     font-weight: 600;
   }
   
@@ -335,7 +392,7 @@
   .navbar-nav .dropdown .btn-link {
     background: none;
     border: none;
-    color: #333333 !important;
+    color: #ffffff !important;
     text-decoration: none;
     width: 100%;
     text-align: left;
@@ -346,8 +403,8 @@
   }
   
   .navbar-nav .dropdown .btn-link:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #333333 !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff !important;
   }
   
   .navbar-nav .dropdown .btn-link:focus {
@@ -363,30 +420,30 @@
     margin: 0 !important;
     border: none;
     border-radius: 0;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.1);
     box-shadow: none;
   }
   
   .navbar-nav .dropdown-menu .dropdown-item {
-    color: #333333;
+    color: #ffffff;
     padding: 12px 20px 12px 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .navbar-nav .dropdown-menu .dropdown-item:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-    color: #333333;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
   }
   
   .navbar-nav .dropdown-menu .dropdown-header {
-    color: rgba(0, 0, 0, 0.7);
+    color: rgba(255, 255, 255, 0.7);
     padding: 12px 20px 12px 40px;
     font-size: 0.9rem;
   }
   
   .navbar-nav .dropdown-divider {
     margin: 0.5rem 0;
-    border-color: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
   }
   
   /* Sepet badge mobil */

@@ -1,14 +1,20 @@
+import { useNavigate, useLoaderData } from 'react-router-dom';
 import PromotionSlider from '../components/PromotionSlider';
 import Footer from '../components/Footer';
-import { useBestSellers } from '../data/products';
 import { useReviews } from '../data/reviews';
+import bannerImage from '../assets/OJS nutrition slider banner.png';
 import '../components/HomePage.css';
 
+interface LoaderData {
+  bestSellers: any[];
+}
+
 const HomePage = () => {
-  const { bestSellers, loading: bestSellersLoading, error: bestSellersError } = useBestSellers();
+  const navigate = useNavigate();
+  const { bestSellers } = useLoaderData() as LoaderData;
   const { reviews, loading: reviewsLoading, total: totalReviews } = useReviews(1, 4);
 
-  if (bestSellersLoading || reviewsLoading) {
+  if (reviewsLoading) {
     return (
       <div className="text-center py-5">
         <div className="spinner-border" role="status">
@@ -20,14 +26,43 @@ const HomePage = () => {
 
   return (
     <div className="home-page">
+      {/* Banner Resmi - Sadece Ana Sayfada */}
+      <div className="banner-container" style={{ 
+        width: '100%', 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center',
+        marginTop: '0px',
+        position: 'relative',
+        top: '0px',
+        left: '0px',
+        zIndex: '1',
+        paddingTop: '0px'
+      }}>
+        <img 
+          src={bannerImage} 
+          alt="OJS Nutrition Banner" 
+          style={{ 
+            width: '100%',
+            maxWidth: '1920px',
+            height: 'auto',
+            opacity: 1,
+            objectFit: 'cover',
+            display: 'block',
+            marginTop: '0px',
+            paddingTop: '0px'
+          }} 
+        />
+      </div>
+
       {/* Kategoriler - Banner resminin altında */}
       <section className="categories-section py-5">
         <div className="container-fluid px-0">
-          {/* İlk satır - 3 kart */}
-          <div className="d-flex justify-content-center mb-5 flex-wrap row">
-            {/* PROTEİN Kartı - Baştan yapılacak */}
-            <div className="category-card-wrapper col-6 col-sm-4">
-              <div className="card shadow-sm border-0 category-card protein-card" onClick={() => console.log('PROTEİN kategorisi açıldı')}>
+          {/* Mobilde 2x3, tablet ve üstünde 3+3 düzeni */}
+          <div className="row justify-content-center mb-0">
+            {/* PROTEİN Kartı - 1. kart */}
+            <div className="col-6 col-sm-4 category-card-wrapper">
+              <div className="card shadow-sm border-0 category-card protein-card" onClick={() => navigate('/kategori/protein')}>
                 <div className="card-body">
                   {/* Resim - Kart ile uyumlu */}
                   <img 
@@ -46,7 +81,7 @@ const HomePage = () => {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      console.log('PROTEİN kategorisi açıldı');
+                      navigate('/kategori/protein');
                     }}
                     className="incele-button"
                   >
@@ -57,8 +92,8 @@ const HomePage = () => {
             </div>
             
             {/* VİTAMİNLER Kartı - 2. kart */}
-            <div className="category-card-wrapper col-6 col-sm-4">
-              <div className="card shadow-sm border-0 category-card vitaminler-card" onClick={() => console.log('VİTAMİNLER kategorisi açıldı')}>
+            <div className="col-6 col-sm-4 category-card-wrapper">
+              <div className="card shadow-sm border-0 category-card vitaminler-card" onClick={() => navigate('/kategori/vitamin')}>
                 <div className="card-body">
                   {/* Resim - PROTEİN kartı gibi sol tarafta */}
                   <img 
@@ -78,7 +113,7 @@ const HomePage = () => {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      console.log('VİTAMİNLER kategorisi açıldı');
+                      navigate('/kategori/vitamin');
                     }}
                     className="incele-button"
                   >
@@ -88,9 +123,9 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* 3. Kategori Kartı */}
-            <div className="category-card-wrapper col-6 col-sm-4">
-              <div className="card shadow-sm border-0 category-card saglik-card" onClick={() => console.log('SAĞLIK kategorisi açıldı')}>
+            {/* SAĞLIK Kartı - 3. kart */}
+            <div className="col-6 col-sm-4 category-card-wrapper">
+              <div className="card shadow-sm border-0 category-card saglik-card" onClick={() => navigate('/kategori/saglik')}>
                 <div className="card-body">
                   {/* Resim - Sağlık klasöründen */}
                   <img 
@@ -110,7 +145,7 @@ const HomePage = () => {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      console.log('SAĞLIK kategorisi açıldı');
+                      navigate('/kategori/saglik');
                     }}
                     className="incele-button"
                   >
@@ -119,13 +154,10 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-          </div>
-          
-          {/* İkinci satır - 3 kart */}
-          <div className="d-flex justify-content-center flex-wrap row">
-            {/* 4. Kart - SPOR GIDALARI */}
-            <div className="category-card-wrapper col-6 col-sm-4">
-              <div className="card shadow-sm border-0 category-card spor-gidalari-card" onClick={() => console.log('SPOR GIDALARI kategorisi açıldı')}>
+            
+            {/* SPOR GIDALARI Kartı - 4. kart */}
+            <div className="col-6 col-sm-4 category-card-wrapper">
+              <div className="card shadow-sm border-0 category-card spor-gidalari-card" onClick={() => navigate('/kategori/spor-gidalari')}>
                 <div className="card-body">
                   {/* Resim - Spor gıdaları klasöründen */}
                   <img 
@@ -145,7 +177,7 @@ const HomePage = () => {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      console.log('SPOR GIDALARI kategorisi açıldı');
+                      navigate('/kategori/spor-gidalari');
                     }}
                     className="incele-button"
                   >
@@ -155,9 +187,9 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* 5. Kategori Kartı */}
-            <div className="category-card-wrapper col-6 col-sm-4">
-              <div className="card shadow-sm border-0 category-card gida-card" onClick={() => console.log('GIDA kategorisi açıldı')}>
+            {/* GIDA Kartı - 5. kart */}
+            <div className="col-6 col-sm-4 category-card-wrapper">
+              <div className="card shadow-sm border-0 category-card gida-card" onClick={() => navigate('/kategori/gida')}>
                 <div className="card-body">
                   {/* Resim - Gıda klasöründen */}
                   <img 
@@ -177,7 +209,7 @@ const HomePage = () => {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      console.log('GIDA kategorisi açıldı');
+                      navigate('/kategori/gida');
                     }}
                     className="incele-button"
                   >
@@ -187,9 +219,9 @@ const HomePage = () => {
               </div>
             </div>
             
-            {/* 6. Kart - TÜM ÜRÜNLER */}
-            <div className="category-card-wrapper col-6 col-sm-4">
-              <div className="card shadow-sm border-0 category-card tum-urunler-card" onClick={() => console.log('TÜM ÜRÜNLER sayfası açıldı')}>
+            {/* TÜM ÜRÜNLER Kartı - 6. kart */}
+            <div className="col-6 col-sm-4 category-card-wrapper">
+              <div className="card shadow-sm border-0 category-card tum-urunler-card" onClick={() => navigate('/urunler')}>
                 <div className="card-body">
                   {/* Katman 1 - Tüm ürünler klasöründen */}
                   <img 
@@ -216,7 +248,7 @@ const HomePage = () => {
                   <button 
                     onClick={(e) => {
                       e.stopPropagation();
-                      console.log('TÜM ÜRÜNLER sayfası açıldı');
+                      navigate('/urunler');
                     }}
                     className="incele-button"
                   >
@@ -239,41 +271,12 @@ const HomePage = () => {
               <div className="bg-warning" style={{ width: '60px', height: '3px', borderRadius: '2px' }}></div>
             </div>
           </div>
-          {bestSellers.length > 0 ? (
+          {bestSellers && bestSellers.length > 0 ? (
             <PromotionSlider 
               products={bestSellers}
               title=""
             />
-          ) : bestSellersLoading ? (
-            <div className="row">
-              {[1, 2, 3].map((index) => (
-                <div key={index} className="col-lg-4 col-md-6 col-12 mb-4">
-                  <div className="skeleton-card">
-                    <div className="skeleton-image skeleton-loading"></div>
-                    <div className="skeleton-title skeleton-loading"></div>
-                    <div className="skeleton-text skeleton-loading"></div>
-                    <div className="skeleton-text skeleton-loading"></div>
-                    <div className="skeleton-price skeleton-loading"></div>
-                    <div className="skeleton-button skeleton-loading"></div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          ) : bestSellersError ? (
-            <div className="text-center text-danger py-5">
-              <div className="mb-3">
-                <i className="bi bi-exclamation-triangle" style={{ fontSize: '3rem' }}></i>
-              </div>
-              <h5 className="mb-2">Bir hata oluştu</h5>
-              <p className="mb-3">{bestSellersError}</p>
-              <button 
-                className="btn btn-outline-primary"
-                onClick={() => window.location.reload()}
-              >
-                Tekrar Dene
-              </button>
-            </div>
-          ) : bestSellers.length === 0 && !bestSellersLoading ? (
+          ) : (
             <div className="text-center text-muted py-5">
               <div className="mb-3">
                 <i className="bi bi-inbox" style={{ fontSize: '3rem' }}></i>
@@ -286,13 +289,6 @@ const HomePage = () => {
               >
                 Tüm Ürünleri Gör
               </button>
-            </div>
-          ) : (
-            <div className="text-center text-muted py-5">
-              <div className="spinner-border text-primary mb-3" role="status" style={{ width: '3rem', height: '3rem' }}>
-                <span className="visually-hidden">Yükleniyor...</span>
-              </div>
-              <p className="mb-0">Çok satan ürünler yükleniyor...</p>
             </div>
           )}
         </div>

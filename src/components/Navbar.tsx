@@ -1,35 +1,24 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useCart } from '../hooks/useCart';
 import { useAuth } from '../hooks/useAuth';
+import { useCategories } from '../data/categories';
 import logoImage from '../assets/LOGO_Siyah.png';
 import './Navbar.css';
 
 interface NavbarProps {
   brandName: string;
-  navigationItems: Array<{
-    id: string;
-    label: string;
-    path: string;
-    isActive?: boolean;
-    children?: Array<{
-      id: string;
-      label: string;
-      path: string;
-      isActive?: boolean;
-    }>;
-  }>;
 }
 
-const Navbar = ({ 
-  brandName, 
-  navigationItems 
-}: NavbarProps) => {
+const Navbar = ({ brandName }: NavbarProps) => {
+  const navigate = useNavigate();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [activePath, setActivePath] = useState('/');
   const { cartItems } = useCart();
   const { user, logout } = useAuth();
+  const { categories, loading: categoriesLoading } = useCategories();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -102,7 +91,11 @@ const Navbar = ({
             
             {/* Logo - Mobilde Ortada, Desktop'ta Solda */}
             <div className="col-6 col-lg-3 d-flex justify-content-center justify-content-lg-start">
-              <div className="d-flex align-items-center text-decoration-none cursor-pointer">
+              <div 
+                className="d-flex align-items-center text-decoration-none cursor-pointer"
+                onClick={() => navigate('/')}
+                style={{ cursor: 'pointer' }}
+              >
                 <img 
                   src={logoImage} 
                   alt={brandName}
@@ -233,27 +226,150 @@ const Navbar = ({
 
           <div className={`collapse navbar-collapse ${isMenuOpen ? 'show' : ''}`} id="navbarNav">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              {navigationItems.map((item) => {
-                const isActive = activePath === item.path;
-                
-                return (
-                  <li key={item.id} className="nav-item">
+              {categoriesLoading ? (
+                // Kategoriler yüklenirken loading göster
+                <li className="nav-item">
+                  <span className="nav-link px-3 py-2 text-muted">
+                    Kategoriler yükleniyor...
+                  </span>
+                </li>
+              ) : (
+                <>
+                  {categories.map((category) => {
+                    const categoryPath = `/kategori/${category.slug}`;
+                    const isActive = activePath === categoryPath;
+                    const hasChildren = category.children && category.children.length > 0;
+                    
+                    return (
+                      <li key={category.id} className="nav-item">
+                        {hasChildren ? (
+                          // Alt kategorileri olan kategoriler için dropdown
+                          <div className="dropdown">
+                            <a 
+                              className={`nav-link px-3 py-2 dropdown-toggle ${isActive ? 'active fw-bold' : ''}`}
+                              href={categoryPath}
+                              onClick={() => handleNavClick(categoryPath)}
+                              data-bs-toggle="dropdown"
+                              aria-expanded="false"
+                            >
+                              {category.name}
+                            </a>
+                            <ul className="dropdown-menu">
+                              {category.children.map((child) => (
+                                <li key={child.id}>
+                                  <a 
+                                    className="dropdown-item"
+                                    href={`/kategori/${child.slug}`}
+                                    onClick={() => handleNavClick(`/kategori/${child.slug}`)}
+                                  >
+                                    {child.name}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ) : (
+                          // Alt kategorisi olmayan kategoriler için normal link
+                          <a 
+                            className={`nav-link px-3 py-2 ${isActive ? 'active fw-bold' : ''}`}
+                            href={categoryPath}
+                            onClick={() => handleNavClick(categoryPath)}
+                          >
+                            {category.name}
+                          </a>
+                        )}
+                      </li>
+                    );
+                  })}
+                  
+                  {/* Tüm Ürünler linki - her zaman görünür */}
+                  <li className="nav-item">
                     <a 
-                      className={`nav-link px-3 py-2 ${isActive ? 'active fw-bold' : ''}`}
-                      href={item.path}
-                      onClick={() => handleNavClick(item.path)}
+                      className={`nav-link px-3 py-2 ${activePath === '/tum-urunler' ? 'active fw-bold' : ''}`}
+                      href="/tum-urunler"
+                      onClick={() => handleNavClick('/tum-urunler')}
                     >
-                      {item.label}
-                    </a>
+                      TÜM ÜRÜNLER
+                </a>
                   </li>
-                );
-              })}
+                </>
+              )}
               
               {/* Mobil Menüde Hesap ve Sepet */}
               <div className="d-lg-none">
                 <li className="nav-item">
                   <hr className="dropdown-divider my-2" style={{ borderColor: 'rgba(0,0,0,0.2)' }} />
                 </li>
+                
+                {/* Mobil Menüde Kategoriler */}
+                {!categoriesLoading && categories.length > 0 && (
+                  <>
+                    <li className="nav-item">
+                      <h6 className="dropdown-header px-3 py-2 text-muted">KATEGORİLER</h6>
+                    </li>
+                    {categories.map((category) => {
+                      const categoryPath = `/kategori/${category.slug}`;
+                      const isActive = activePath === categoryPath;
+                      const hasChildren = category.children && category.children.length > 0;
+                      
+                      return (
+                        <li key={category.id} className="nav-item">
+                          {hasChildren ? (
+                            // Alt kategorileri olan kategoriler için mobil dropdown
+                            <div className="dropdown">
+                              <button 
+                                className="btn btn-link nav-link text-dark w-100 text-start px-3 py-2"
+                                type="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                              >
+                                {category.name}
+                                <i className="fas fa-chevron-down ms-auto"></i>
+                              </button>
+                              <ul className="dropdown-menu dropdown-menu-start w-100">
+                                {category.children.map((child) => (
+                                  <li key={child.id}>
+                                    <a 
+                                      className="dropdown-item"
+                                      href={`/kategori/${child.slug}`}
+                                      onClick={() => handleNavClick(`/kategori/${child.slug}`)}
+                                    >
+                                      {child.name}
+                                    </a>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          ) : (
+                            // Alt kategorisi olmayan kategoriler için normal link
+                            <a 
+                              className={`btn btn-link nav-link text-dark w-100 text-start px-3 py-2 ${isActive ? 'fw-bold' : ''}`}
+                              href={categoryPath}
+                              onClick={() => handleNavClick(categoryPath)}
+                            >
+                              {category.name}
+                            </a>
+                          )}
+                        </li>
+                      );
+                    })}
+                    
+                    {/* Tüm Ürünler - Mobil */}
+                    <li className="nav-item">
+                      <a 
+                        className={`btn btn-link nav-link text-dark w-100 text-start px-3 py-2 ${activePath === '/tum-urunler' ? 'fw-bold' : ''}`}
+                        href="/tum-urunler"
+                        onClick={() => handleNavClick('/tum-urunler')}
+                      >
+                        TÜM ÜRÜNLER
+                      </a>
+                    </li>
+                    
+                    <li className="nav-item">
+                      <hr className="dropdown-divider my-2" style={{ borderColor: 'rgba(0,0,0,0.2)' }} />
+                    </li>
+                  </>
+                )}
                 
                 {/* HESAP Butonu - Mobil */}
                 <li className="nav-item">

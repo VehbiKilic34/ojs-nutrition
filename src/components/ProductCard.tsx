@@ -1,11 +1,11 @@
 import { Card, Badge, Button } from "react-bootstrap";
-import { useState } from "react";
+import { useState, memo } from "react";
 import type { Product } from "../services/api";
 import { useCart } from "../hooks/useCart";
 
 type ProductCardProps = Product;
 
-const ProductCard = ({
+const ProductCard = memo(({
   id,
   name,
   short_explanation,
@@ -14,14 +14,15 @@ const ProductCard = ({
   comment_count,
   average_star,
 }: ProductCardProps) => {
-  const { total_price, discounted_price, discount_percentage } = price_info;
+  // price_info undefined olabilir, güvenli destructuring
+  const { total_price = 0, discounted_price, discount_percentage } = price_info || {};
   const { addToCart } = useCart();
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   
   
-  const fullPhotoUrl = photo_src.startsWith('http') 
+  const fullPhotoUrl = photo_src && photo_src.startsWith('http') 
     ? photo_src 
-    : `https://fe1111.projects.academy.onlyjs.com${photo_src}`;
+    : `https://fe1111.projects.academy.onlyjs.com${photo_src || ''}`;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -60,9 +61,9 @@ const ProductCard = ({
 
         <div className="mb-2">
           <Badge bg="warning" text="dark" className="me-2">
-            ⭐ {average_star.toFixed(1)}
+            ⭐ {average_star ? average_star.toFixed(1) : '0.0'}
           </Badge>
-          <small className="text-muted">({comment_count} yorum)</small>
+          <small className="text-muted">({comment_count || 0} yorum)</small>
         </div>
 
         <div className="fw-bold fs-6 fs-md-5 mb-3">
@@ -109,6 +110,6 @@ const ProductCard = ({
       </Card.Body>
     </Card>
   );
-};
+});
 
 export default ProductCard;

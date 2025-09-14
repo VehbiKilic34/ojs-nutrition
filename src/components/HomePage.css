@@ -1,5 +1,559 @@
 /* HomePage.css - Tüm inline CSS'ler buraya taşındı */
 
+/* ===== TAM EKRAN YAZI POZİSYONLARI - EN YÜKSEK SPECIFICITY ===== */
+@media (min-width: 1920px) {
+  /* Tam ekran yazı pozisyonları - ÇOK GÜÇLÜ OVERRIDE */
+  .categories-section .category-card .protein-text,
+  .categories-section .category-card .vitaminler-text,
+  .categories-section .category-card .saglik-text,
+  .categories-section .category-card .spor-gidalari-text,
+  .categories-section .category-card .gida-text,
+  .categories-section .category-card .tum-urunler-text {
+    position: absolute !important;
+    bottom: auto !important;
+    z-index: 10 !important;
+  }
+  
+  .categories-section .category-card .protein-text {
+    top: 0px !important;
+    right: 25px !important;
+    width: 160px !important;
+    height: 30px !important;
+  }
+  
+  .categories-section .category-card .vitaminler-text,
+  .categories-section .category-card .saglik-text,
+  .categories-section .category-card .spor-gidalari-text,
+  .categories-section .category-card .gida-text,
+  .categories-section .category-card .tum-urunler-text {
+    top: 0px !important;
+    right: 25px !important;
+    width: 130px !important;
+    height: 60px !important;
+  }
+}
+
+@media (min-width: 2560px) {
+  /* 4K ekran yazı pozisyonları - ÇOK GÜÇLÜ OVERRIDE */
+  .categories-section .category-card .protein-text {
+    top: 0px !important;
+    right: 30px !important;
+    width: 180px !important;
+    height: 35px !important;
+  }
+  
+  .categories-section .category-card .vitaminler-text,
+  .categories-section .category-card .saglik-text,
+  .categories-section .category-card .spor-gidalari-text,
+  .categories-section .category-card .gida-text,
+  .categories-section .category-card .tum-urunler-text {
+    top: 0px !important;
+    right: 30px !important;
+    width: 150px !important;
+    height: 70px !important;
+  }
+}
+
+/* ===== RESPONSIVE KATEGORİ KARTLARI - TUTARLI KURALLAR ===== */
+
+/* Tam Ekran (1920px ve üzeri) - Buton ve kart boyutları */
+@media (min-width: 1920px) {
+  .category-card {
+    min-height: 180px !important;
+  }
+  
+  .incele-button {
+    width: 180px !important;
+    height: 38px !important;
+    font-size: 20px !important;
+    bottom: 25px !important;
+    right: 25px !important;
+  }
+  
+  /* Yazı boyutları - Tam Ekran */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 28px !important;
+    line-height: 32px !important;
+  }
+}
+
+/* 4K ve Üzeri Ekranlar (2560px ve üzeri) - Buton ve kart boyutları */
+@media (min-width: 2560px) {
+  .category-card {
+    min-height: 200px !important;
+  }
+  
+  .incele-button {
+    width: 200px !important;
+    height: 42px !important;
+    font-size: 22px !important;
+    bottom: 30px !important;
+    right: 30px !important;
+  }
+  
+  /* Yazı boyutları - 4K */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 30px !important;
+    line-height: 34px !important;
+  }
+}
+
+/* Desktop (1200px ve üzeri) - 3+3 düeni */
+@media (min-width: 1200px) {
+  .category-card {
+    min-height: 157px !important;
+  }
+  
+  .incele-button {
+    width: 160px !important;
+    height: 34px !important;
+    font-size: 18px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+  
+  /* Ana yazı pozisyonları - Desktop - Kartın üstüne yakın */
+  .protein-text {
+    top: 0px !important;
+    right: 20px !important;
+    width: 165px !important;
+    height: 32px !important;
+  }
+  
+  .vitaminler-text {
+    top: 0px !important;
+    right: 20px !important;
+    width: 132px !important;
+    height: 64px !important;
+  }
+  
+  .saglik-text {
+    top: 0px !important;
+    right: 20px !important;
+    width: 132px !important;
+    height: 64px !important;
+  }
+  
+  .spor-gidalari-text {
+    top: 0px !important;
+    right: 20px !important;
+    width: 132px !important;
+    height: 64px !important;
+  }
+  
+  .gida-text {
+    top: 0px !important;
+    right: 20px !important;
+    width: 132px !important;
+    height: 64px !important;
+  }
+  
+  .tum-urunler-text {
+    top: 0px !important;
+    right: 20px !important;
+    width: 132px !important;
+    height: 64px !important;
+  }
+  
+  /* Yazı boyutları - Desktop */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 28px !important;
+    line-height: 32px !important;
+  }
+}
+
+/* Tablet (992px - 1199px) - 3+3 düeni */
+@media (min-width: 992px) and (max-width: 1199px) {
+  .category-card {
+    min-height: 140px !important;
+    max-height: 160px !important;
+  }
+  
+  .incele-button {
+    width: 120px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+  
+  /* Ana yazı pozisyonları - Tablet - Kartın üstüne yakın */
+  .protein-text {
+    top: 12px !important;
+    right: 15px !important;
+    width: 140px !important;
+    height: 28px !important;
+  }
+  
+  .vitaminler-text {
+    top: 6px !important;
+    right: 15px !important;
+    width: 110px !important;
+    height: 50px !important;
+  }
+  
+  .saglik-text {
+    top: 6px !important;
+    right: 15px !important;
+    width: 110px !important;
+    height: 50px !important;
+  }
+  
+  .spor-gidalari-text {
+    top: 6px !important;
+    right: 15px !important;
+    width: 110px !important;
+    height: 50px !important;
+  }
+  
+  .gida-text {
+    top: 6px !important;
+    right: 15px !important;
+    width: 110px !important;
+    height: 50px !important;
+  }
+  
+  .tum-urunler-text {
+    top: 6px !important;
+    right: 15px !important;
+    width: 110px !important;
+    height: 50px !important;
+  }
+  
+
+  
+  /* Yazı boyutları - Tablet */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 20px !important;
+    line-height: 24px !important;
+  }
+}
+
+/* Küçük Tablet (768px - 991px) - 3+3 düeni */
+@media (min-width: 768px) and (max-width: 991px) {
+  .category-card {
+    min-height: 120px !important;
+    max-height: 140px !important;
+  }
+  
+  .incele-button {
+    width: 120px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+  
+  /* Ana yazı pozisyonları - Küçük Tablet - Kartın üstüne yakın */
+  .protein-text {
+    top: 10px !important;
+    right: 12px !important;
+    width: 120px !important;
+    height: 24px !important;
+  }
+  
+  .vitaminler-text {
+    top: 5px !important;
+    right: 12px !important;
+    width: 95px !important;
+    height: 45px !important;
+  }
+  
+  .saglik-text {
+    top: 5px !important;
+    right: 12px !important;
+    width: 95px !important;
+    height: 45px !important;
+  }
+  
+  .spor-gidalari-text {
+    top: 5px !important;
+    right: 12px !important;
+    width: 95px !important;
+    height: 45px !important;
+  }
+  
+  .gida-text {
+    top: 5px !important;
+    right: 12px !important;
+    width: 95px !important;
+    height: 45px !important;
+  }
+  
+  .tum-urunler-text {
+    top: 5px !important;
+    right: 12px !important;
+    width: 95px !important;
+    height: 45px !important;
+  }
+  
+
+  
+  /* Yazı boyutları - Küçük Tablet */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 18px !important;
+    line-height: 22px !important;
+  }
+}
+
+/* Mobil (576px - 767px) - 2+2+2 düeni */
+@media (min-width: 576px) and (max-width: 767px) {
+  .categories-section .col-6,
+  .categories-section .col-sm-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+  }
+  
+  .category-card {
+    min-height: 100px !important;
+    max-height: 120px !important;
+  }
+  
+
+  
+  .incele-button {
+    width: 100px !important;
+    height: 26px !important;
+    font-size: 12px !important;
+    bottom: 8px !important;
+    right: 8px !important;
+  }
+  
+  /* Ana yazı pozisyonları - Mobil - Kartın üstüne yakın */
+  .protein-text {
+    top: 0px !important;
+    right: 8px !important;
+    width: 90px !important;
+    height: 20px !important;
+  }
+  
+  .vitaminler-text {
+    top: 0px !important;
+    right: 8px !important;
+    width: 70px !important;
+    height: 35px !important;
+  }
+  
+  .saglik-text {
+    top: 0px !important;
+    right: 8px !important;
+    width: 70px !important;
+    height: 35px !important;
+  }
+  
+  .spor-gidalari-text {
+    top: 0px !important;
+    right: 8px !important;
+    width: 70px !important;
+    height: 35px !important;
+  }
+  
+  .gida-text {
+    top: 0px !important;
+    right: 8px !important;
+    width: 70px !important;
+    height: 35px !important;
+  }
+  
+  .tum-urunler-text {
+    top: 0px !important;
+    right: 8px !important;
+    width: 70px !important;
+    height: 35px !important;
+  }
+  
+
+  
+  /* Yazı boyutları - Mobil */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 16px !important;
+    line-height: 20px !important;
+  }
+}
+
+/* Mobil ekranlarda Bootstrap grid'i tamamen override et */
+@media (max-width: 575px) {
+  /* Tüm Bootstrap grid sınıflarını zorla override et */
+  .categories-section .col-6,
+  .categories-section .col-sm-4,
+  .categories-section .col,
+  .categories-section .col-12,
+  .categories-section .col-md-6,
+  .categories-section .col-lg-4,
+  .categories-section [class*="col-"] {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding: 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Row ve flex container'ları zorla 2+2+2 düeninde ayarla */
+  .categories-section .row,
+  .categories-section .d-flex {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    width: 100% !important;
+    padding: 0 8px !important;
+  }
+  
+  /* Tüm div'leri zorla 50% genişlikte yap */
+  .categories-section .row > div,
+  .categories-section .d-flex > div,
+  .categories-section .category-card-wrapper {
+    flex: 0 0 calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    padding: 4px !important;
+    margin: 0 0 8px 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Kart boyutları - Mobil */
+  .category-card {
+    min-height: 80px !important;
+    max-height: 120px !important;
+  }
+  
+
+  
+  .incele-button {
+    width: 80px !important;
+    height: 24px !important;
+    font-size: 10px !important;
+    bottom: 6px !important;
+    right: 6px !important;
+  }
+  
+  /* Ana yazı pozisyonları - Küçük Mobil - Kartın üstüne yakın */
+  .protein-text {
+    top: 6px !important;
+    right: 6px !important;
+    width: 70px !important;
+    height: 18px !important;
+  }
+  
+  .vitaminler-text {
+    top: 3px !important;
+    right: 6px !important;
+    width: 55px !important;
+    height: 30px !important;
+  }
+  
+  .saglik-text {
+    top: 3px !important;
+    right: 6px !important;
+    width: 55px !important;
+    height: 30px !important;
+  }
+  
+  .spor-gidalari-text {
+    top: 3px !important;
+    right: 6px !important;
+    width: 55px !important;
+    height: 30px !important;
+  }
+  
+  .gida-text {
+    top: 3px !important;
+    right: 6px !important;
+    width: 55px !important;
+    height: 30px !important;
+  }
+  
+  .tum-urunler-text {
+    top: 3px !important;
+    right: 6px !important;
+    width: 55px !important;
+    height: 30px !important;
+  }
+  
+
+  
+  /* Yazı boyutları - Küçük Mobil */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 14px !important;
+    line-height: 18px !important;
+  }
+}
+
+/* Mobil ekranlarda Bootstrap grid'i zorla override et */
+@media (max-width: 575px) {
+  .categories-section .col-6,
+  .categories-section .col-sm-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding: 4px !important;
+  }
+  
+  .categories-section .row,
+  .categories-section .d-flex {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: stretch !important;
+    gap: 6px !important;
+  }
+  
+  .categories-section .row > div,
+  .categories-section .d-flex > div {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding: 4px !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .category-card-wrapper {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    margin-bottom: 0.5rem !important;
+  }
+}
+
 /* Kategori Section Spacing */
 .categories-section {
   margin-bottom: 5rem;
@@ -24,38 +578,49 @@
 
 /* Kategori Kartları - Genel Stil */
 .category-card {
-  width: 384.4285583496094px !important;
-  min-width: 384.4285583496094px !important;
-  max-width: 384.4285583496094px !important;
-  height: 157px !important;
-  min-height: 157px !important;
-  max-height: 157px !important;
+  width: 100% !important;
+  height: auto !important;
   position: relative;
-  top: 5.18px;
   border-radius: 10px;
   overflow: hidden;
-  margin: 0 15px;
+  margin: 0;
   flex-shrink: 0;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   border: 2px solid transparent;
   opacity: 1;
-  transform: rotate(0deg);
   box-sizing: border-box;
 }
 
+/* Tüm Ürünler kartı için özel kurallar */
+.tum-urunler-card .katman-1-image {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  object-fit: cover !important;
+}
+
+.tum-urunler-card .amino-asit-image {
+  width: 50% !important;
+  height: auto !important;
+  position: absolute !important;
+  top: 20px !important;
+  left: 20px !important;
+  object-fit: cover !important;
+}
+
 .category-card:hover {
-  transform: translateY(-5px) rotate(0deg);
+  transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(0,0,0,0.15);
   border-color: rgba(0,0,0,0.1);
 }
 
 /* Kategori Kart Wrapper'ları */
 .category-card-wrapper {
-  min-width: 384.4285583496094px !important;
-  max-width: 384.4285583496094px !important;
-  width: 384.4285583496094px !important;
+  width: 100% !important;
   flex-shrink: 0;
   transition: all 0.3s ease;
   position: relative;
@@ -104,7 +669,7 @@
 
 /* Responsive düzen için */
 @media (min-width: 576px) {
-  /* PC, Tablet ve Orta boyut ekranlar - 3+3 düeni */
+  /* PC, Tablet ve Orta boyut ekranlarda - 3+3 düeni */
   .categories-section .col-6,
   .categories-section .col-sm-4 {
     flex: 0 0 33.333333% !important;
@@ -112,7 +677,8 @@
     padding: 5px;
   }
   
-  .categories-section .row {
+  .categories-section .row,
+  .categories-section .d-flex {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
@@ -122,28 +688,115 @@
   .categories-section .row > div {
     margin-bottom: 0 !important;
   }
-}
-
-@media (max-width: 575px) {
-  /* Sadece gerçek mobil ekranlarda - 2+2+2 düeni */
-  .categories-section .col-6,
-  .categories-section .col-sm-4 {
-    flex: 0 0 50% !important;
-    max-width: 50% !important;
-    padding: 4px;
+  
+  .category-card-wrapper {
+    flex: 0 0 auto !important;
+    margin-bottom: 0 !important;
   }
   
-  .categories-section .row {
+  /* Kart boyutları - Desktop */
+  .category-card {
+    min-height: 157px !important;
+  }
+  
+  .incele-button {
+    width: 160px !important;
+    height: 34px !important;
+    font-size: 18px !important;
+    bottom: 20px !important;
+    right: 20px !important;
+  }
+  
+  /* Yazı boyutları - Desktop */
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 28px !important;
+    line-height: 32px !important;
+  }
+}
+
+/* Mobil ekranlarda Bootstrap grid'i tamamen override et */
+@media (max-width: 575px) {
+  /* Tüm Bootstrap grid sınıflarını zorla override et */
+  .categories-section .col-6,
+  .categories-section .col-sm-4,
+  .categories-section .col,
+  .categories-section .col-12,
+  .categories-section .col-md-6,
+  .categories-section .col-lg-4,
+  .categories-section [class*="col-"] {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding: 4px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Row ve flex container'ları zorla 2+2+2 düeninde ayarla */
+  .categories-section .row,
+  .categories-section .d-flex {
     display: flex !important;
     flex-wrap: wrap !important;
     justify-content: center !important;
+    align-items: stretch !important;
     gap: 6px !important;
+    margin: 0 !important;
+    width: 100% !important;
   }
   
-  .categories-section .row > div {
-    margin-bottom: 0 !important;
+  /* Tüm div'leri zorla 50% genişlikte yap */
+  .categories-section .row > div,
+  .categories-section .d-flex > div,
+  .categories-section .category-card-wrapper,
+  .categories-section > div > div {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    padding: 4px !important;
+    margin: 0 0 0.5rem 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Kart wrapper'ları zorla 50% genişlikte yap */
+  .category-card-wrapper {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    width: 50% !important;
+    margin: 0 0 0.5rem 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Kartları da responsive yap */
+  .category-card,
+  .category-card.card {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: auto !important;
+    height: auto !important;
+    min-height: 80px !important;
+    max-height: 120px !important;
+  }
+  
+  /* Bootstrap grid'i tamamen devre dışı bırak */
+  .categories-section .container-fluid,
+  .categories-section .container {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  
+  /* Tüm grid sistemini zorla 2+2+2 yap */
+  .categories-section * {
+    box-sizing: border-box !important;
   }
 }
+
+/* Bu media query kaldırıldı çünkü yukarıda yenisi eklendi */
 
 /* Bootstrap card-body override */
 .category-card .card-body {
@@ -156,27 +809,25 @@
 
 /* Bootstrap card override */
 .category-card.card {
-  width: 384.4285583496094px !important;
-  min-width: 384.4285583496094px !important;
-  max-width: 384.4285583496094px !important;
-  height: 157px !important;
-  min-height: 157px !important;
-  max-height: 157px !important;
-  max-width: none !important;
-  max-height: none !important;
+  width: 100% !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  height: auto !important;
+  min-height: 120px !important;
+  max-height: 200px !important;
   box-sizing: border-box !important;
 }
 
-/* Tüm kartlar için genel override */
+/* Tüm kartlar için responsive boyutlar */
 .categories-section .category-card,
 .categories-section .category-card.card,
 .categories-section .category-card-wrapper {
-  width: 384.4285583496094px !important;
-  min-width: 384.4285583496094px !important;
-  max-width: 384.4285583496094px !important;
-  height: 157px !important;
-  min-height: 157px !important;
-  max-height: 157px !important;
+  width: 100% !important;
+  min-width: 300px !important;
+  max-width: 400px !important;
+  height: auto !important;
+  min-height: 120px !important;
+  max-height: 200px !important;
 }
 
 .category-card-wrapper:hover {
@@ -711,12 +1362,49 @@
   background-color: #7EA0A2 !important;
 }
 
+/* Tüm ekran boyutlarında PROTEİN kartı background rengini koru */
+@media (max-width: 1200px) {
+  .protein-card,
+  .protein-card.card {
+    background-color: #7EA0A2 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .protein-card,
+  .protein-card.card {
+    background-color: #7EA0A2 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .protein-card,
+  .protein-card.card {
+    background-color: #7EA0A2 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .protein-card,
+  .protein-card.card {
+    background-color: #7EA0A2 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .protein-card,
+  .protein-card.card {
+    background-color: #7EA0A2 !important;
+  }
+}
+
 .protein-image {
-  width: 294px;
-  height: 158px;
+  width: 288px;
+  height: auto;
   position: absolute;
   top: 0px;
-  left: 0px;
+  bottom: 0px;
+  left: 4px;
   object-fit: cover;
   border-radius: 8px;
   opacity: 1;
@@ -758,12 +1446,49 @@
   background-color: #FDE8D7 !important;
 }
 
+/* Tüm ekran boyutlarında VİTAMİNLER kartı background rengini koru */
+@media (max-width: 1200px) {
+  .vitaminler-card,
+  .vitaminler-card.card {
+    background-color: #FDE8D7 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .vitaminler-card,
+  .vitaminler-card.card {
+    background-color: #FDE8D7 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .vitaminler-card,
+  .vitaminler-card.card {
+    background-color: #FDE8D7 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .vitaminler-card,
+  .vitaminler-card.card {
+    background-color: #FDE8D7 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .vitaminler-card,
+  .vitaminler-card.card {
+    background-color: #FDE8D7 !important;
+  }
+}
+
 .vitaminler-image {
-  width: 294px;
-  height: 158px;
+  width: 288px;
+  height: auto;
   position: absolute;
   top: 0px;
-  left: 0px;
+  bottom: 0px;
+  left: 4px;
   object-fit: cover;
   border-radius: 8px;
   opacity: 1;
@@ -805,12 +1530,49 @@
   background-color: #CCCBC6 !important;
 }
 
+/* Tüm ekran boyutlarında SAĞLIK kartı background rengini koru */
+@media (max-width: 1200px) {
+  .saglik-card,
+  .saglik-card.card {
+    background-color: #CCCBC6 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .saglik-card,
+  .saglik-card.card {
+    background-color: #CCCBC6 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .saglik-card,
+  .saglik-card.card {
+    background-color: #CCCBC6 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .saglik-card,
+  .saglik-card.card {
+    background-color: #CCCBC6 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .saglik-card,
+  .saglik-card.card {
+    background-color: #CCCBC6 !important;
+  }
+}
+
 .saglik-image {
-  width: 294px;
-  height: 158px;
+  width: 288px;
+  height: auto;
   position: absolute;
   top: 0px;
-  left: 0px;
+  bottom: 0px;
+  left: 4px;
   object-fit: cover;
   border-radius: 8px;
   opacity: 1;
@@ -852,12 +1614,49 @@
   background-color: #D9D8D3 !important;
 }
 
+/* Tüm ekran boyutlarında SPOR GIDALARI kartı background rengini koru */
+@media (max-width: 1200px) {
+  .spor-gidalari-card,
+  .spor-gidalari-card.card {
+    background-color: #D9D8D3 !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .spor-gidalari-card,
+  .spor-gidalari-card.card {
+    background-color: #D9D8D3 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .spor-gidalari-card,
+  .spor-gidalari-card.card {
+    background-color: #D9D8D3 !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .spor-gidalari-card,
+  .spor-gidalari-card.card {
+    background-color: #D9D8D3 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .spor-gidalari-card,
+  .spor-gidalari-card.card {
+    background-color: #D9D8D3 !important;
+  }
+}
+
 .spor-gidalari-image {
-  width: 294px;
-  height: 158px;
+  width: 288px;
+  height: auto;
   position: absolute;
   top: 0px;
-  left: 0px;
+  bottom: 0px;
+  left: 4px;
   object-fit: cover;
   border-radius: 8px;
   opacity: 1;
@@ -899,12 +1698,49 @@
   background-color: #72B4CE !important;
 }
 
+/* Tüm ekran boyutlarında GIDA kartı background rengini koru */
+@media (max-width: 1200px) {
+  .gida-card,
+  .gida-card.card {
+    background-color: #72B4CE !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .gida-card,
+  .gida-card.card {
+    background-color: #72B4CE !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .gida-card,
+  .gida-card.card {
+    background-color: #72B4CE !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .gida-card,
+  .gida-card.card {
+    background-color: #72B4CE !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .gida-card,
+  .gida-card.card {
+    background-color: #72B4CE !important;
+  }
+}
+
 .gida-image {
-  width: 294px;
-  height: 158px;
+  width: 288px;
+  height: auto;
   position: absolute;
   top: 0px;
-  left: 0px;
+  bottom: 0px;
+  left: 4px;
   object-fit: cover;
   border-radius: 8px;
   opacity: 1;
@@ -946,27 +1782,43 @@
   background-color: white !important;
 }
 
-.katman-1-image {
-  width: 384.4285583496094px;
-  height: 157px;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  object-fit: cover;
-  border-radius: 8px;
-  opacity: 1;
+/* Tüm ekran boyutlarında TÜM ÜRÜNLER kartı background rengini koru */
+@media (max-width: 1200px) {
+  .tum-urunler-card,
+  .tum-urunler-card.card {
+    background-color: white !important;
+  }
 }
 
-.amino-asit-image {
-  width: 180px;
-  height: 120px;
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  object-fit: cover;
-  border-radius: 8px;
-  opacity: 1;
+@media (max-width: 992px) {
+  .tum-urunler-card,
+  .tum-urunler-card.card {
+    background-color: white !important;
+  }
 }
+
+@media (max-width: 768px) {
+  .tum-urunler-card,
+  .tum-urunler-card.card {
+    background-color: white !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .tum-urunler-card,
+  .tum-urunler-card.card {
+    background-color: white !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .tum-urunler-card,
+  .tum-urunler-card.card {
+    background-color: white !important;
+  }
+}
+
+
 
 .tum-urunler-text {
   position: absolute;
@@ -1055,33 +1907,55 @@
   .category-card.card,
   .categories-section .category-card,
   .categories-section .category-card.card {
-    width: 384.4285583496094px !important;
-    min-width: 384.4285583496094px !important;
-    max-width: 384.4285583496094px !important;
-    height: 157px !important;
-    min-height: 157px !important;
-    max-height: 157px !important;
-    background-color: inherit !important;
+    width: 100% !important;
+    min-width: 280px !important;
+    max-width: 350px !important;
+    height: auto !important;
+    min-height: 140px !important;
+    max-height: 180px !important;
+    /* background-color: inherit !important; - Bu satırı kaldırdık */
   }
   
   .category-card-wrapper,
   .categories-section .category-card-wrapper {
-    min-width: 384.4285583496094px !important;
-    max-width: 384.4285583496094px !important;
-    width: 384.4285583496094px !important;
+    width: 100% !important;
+    min-width: 280px !important;
+    max-width: 350px !important;
   }
   
-  .category-card img {
-    width: 294px;
-    height: 158px;
-  }
+
   
   .incele-button {
-    width: 140px;
-    height: 30px;
-    font-size: 16px;
-    bottom: 15px;
-    right: 15px;
+    width: 140px !important;
+    height: 30px !important;
+    font-size: 16px !important;
+    bottom: 15px !important;
+    right: 15px !important;
+  }
+  
+  /* Yazıları responsive yap */
+  .protein-text,
+  .vitaminler-text,
+  .saglik-text,
+  .spor-gidalari-text,
+  .gida-text,
+  .tum-urunler-text {
+    position: absolute !important;
+    right: 15px !important;
+    top: auto !important;
+    bottom: 60px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 22px !important;
+    line-height: 26px !important;
   }
 }
 
@@ -1105,33 +1979,55 @@
   .category-card.card,
   .categories-section .category-card,
   .categories-section .category-card.card {
-    width: 320px !important;
-    min-width: 320px !important;
+    width: 100% !important;
+    min-width: 250px !important;
     max-width: 320px !important;
-    height: 140px !important;
-    min-height: 140px !important;
-    max-height: 140px !important;
-    background-color: inherit !important;
+    height: auto !important;
+    min-height: 120px !important;
+    max-height: 160px !important;
+    /* background-color: inherit !important; - Bu satırı kaldırdık */
   }
   
   .category-card-wrapper,
   .categories-section .category-card-wrapper {
-    min-width: 320px !important;
+    width: 100% !important;
+    min-width: 250px !important;
     max-width: 320px !important;
-    width: 320px !important;
   }
   
-  .category-card img {
-    width: 250px;
-    height: 140px;
-  }
+
   
   .incele-button {
-    width: 120px;
-    height: 28px;
-    font-size: 14px;
-    bottom: 12px;
-    right: 12px;
+    width: 120px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+    bottom: 12px !important;
+    right: 12px !important;
+  }
+  
+  /* Yazıları responsive yap */
+  .protein-text,
+  .vitaminler-text,
+  .saglik-text,
+  .spor-gidalari-text,
+  .gida-text,
+  .tum-urunler-text {
+    position: absolute !important;
+    right: 12px !important;
+    top: auto !important;
+    bottom: 50px !important;
+    width: auto !important;
+    height: auto !important;
+  }
+  
+  .protein-text span,
+  .vitaminler-text span,
+  .saglik-text span,
+  .spor-gidalari-text span,
+  .gida-text span,
+  .tum-urunler-text span {
+    font-size: 20px !important;
+    line-height: 24px !important;
   }
   
   /* Tablet'te 2-2-2 düzeni */
@@ -1169,34 +2065,44 @@
   .category-card.card,
   .categories-section .category-card,
   .categories-section .category-card.card {
-    width: 384.4285583496094px !important;
-    min-width: 384.4285583496094px !important;
-    max-width: 384.4285583496094px !important;
-    height: 157px !important;
-    min-height: 157px !important;
-    max-height: 157px !important;
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 250px !important;
+    height: auto !important;
+    min-height: 100px !important;
+    max-height: 140px !important;
     margin: 0 8px;
-    background-color: inherit !important;
+    /* background-color: inherit !important; - Bu satırı kaldırdık */
   }
   
   .category-card-wrapper,
   .categories-section .category-card-wrapper {
-    min-width: 384.4285583496094px !important;
-    max-width: 384.4285583496094px !important;
-    width: 384.4285583496094px !important;
-  }
-  
-  .category-card img {
-    width: 294px;
-    height: 158px;
+    width: 100% !important;
+    max-width: 350px !important;
+    min-width: 250px !important;
   }
   
   .incele-button {
-    width: 120px;
-    height: 28px;
-    font-size: 14px;
-    bottom: 10px;
-    right: 10px;
+    width: 120px !important;
+    height: 28px !important;
+    font-size: 14px !important;
+    bottom: 10px !important;
+    right: 10px !important;
+  }
+  
+  /* Yazıları responsive yap */
+  .protein-text,
+  .vitaminler-text,
+  .saglik-text,
+  .spor-gidalari-text,
+  .gida-text,
+  .tum-urunler-text {
+    position: absolute !important;
+    right: 10px !important;
+    top: auto !important;
+    bottom: 45px !important;
+    width: auto !important;
+    height: auto !important;
   }
   
   .protein-text span,
@@ -1205,18 +2111,71 @@
   .spor-gidalari-text span,
   .gida-text span,
   .tum-urunler-text span {
-    font-size: 20px;
+    font-size: 18px !important;
+    line-height: 22px !important;
   }
   
-  /* Mobilde kartları dikey olarak düzenle */
-  .categories-section .d-flex {
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem !important;
+  /* Mobilde 2+2+2 düzeni için Bootstrap grid'i ayarla */
+  /* Mobilde 2+2+2 düeni için Bootstrap grid'i zorla override et */
+  .categories-section .col-6,
+  .categories-section .col-sm-4,
+  .categories-section .col,
+  .categories-section .col-12,
+  .categories-section .col-md-6,
+  .categories-section .col-lg-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    padding: 4px !important;
+    width: 50% !important;
+    margin: 0 !important;
+  }
+  
+  /* Mobilde kartları zorla 2+2+2 düzeninde göster */
+  .categories-section .d-flex,
+  .categories-section .row {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
   }
   
   .category-card-wrapper {
-    margin-bottom: 1rem;
+    margin: 0 0 8px 0 !important;
+    flex: 0 0 calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Mobilde tüm div'leri zorla 50% genişlikte yap */
+  .categories-section .row > div,
+  .categories-section .d-flex > div {
+    flex: 0 0 calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    padding: 4px !important;
+    margin: 0 0 8px 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Kartları tam ortada göster */
+  .categories-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 100% !important;
+  }
+  
+  /* Her satırı ayrı ayrı düzenle */
+  .categories-section .row,
+  .categories-section .d-flex {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: space-between !important;
+    padding: 0 8px !important;
   }
 }
 
@@ -1243,32 +2202,42 @@
   .categories-section .category-card,
   .categories-section .category-card.card {
     width: 100% !important;
-    max-width: 350px !important;
-    min-width: 300px !important;
-    height: 120px !important;
-    min-height: 120px !important;
+    max-width: 300px !important;
+    min-width: 200px !important;
+    height: auto !important;
+    min-height: 80px !important;
     max-height: 120px !important;
-    background-color: inherit !important;
+    /* background-color: inherit !important; - Bu satırı kaldırdık */
   }
   
   .category-card-wrapper,
   .categories-section .category-card-wrapper {
     width: 100% !important;
-    max-width: 350px !important;
-    min-width: 300px !important;
-  }
-  
-  .category-card img {
-    width: 220px;
-    height: 120px;
+    max-width: 300px !important;
+    min-width: 200px !important;
   }
   
   .incele-button {
-    width: 100px;
-    height: 26px;
-    font-size: 12px;
-    bottom: 8px;
-    right: 8px;
+    width: 100px !important;
+    height: 26px !important;
+    font-size: 12px !important;
+    bottom: 8px !important;
+    right: 8px !important;
+  }
+  
+  /* Yazıları responsive yap */
+  .protein-text,
+  .vitaminler-text,
+  .saglik-text,
+  .spor-gidalari-text,
+  .gida-text,
+  .tum-urunler-text {
+    position: absolute !important;
+    right: 8px !important;
+    top: auto !important;
+    bottom: 40px !important;
+    width: auto !important;
+    height: auto !important;
   }
   
   .protein-text span,
@@ -1277,19 +2246,71 @@
   .spor-gidalari-text span,
   .gida-text span,
   .tum-urunler-text span {
-    font-size: 18px;
+    font-size: 16px !important;
+    line-height: 20px !important;
   }
   
   /* Cep telefonunda 1-1-1-1-1-1 düzeni */
-  .categories-section .d-flex {
-    flex-direction: column !important;
+  /* Cep telefonunda 2+2+2 düeni için Bootstrap grid'i zorla override et */
+  .categories-section .col-6,
+  .categories-section .col-sm-4,
+  .categories-section .col,
+  .categories-section .col-12,
+  .categories-section .col-md-6,
+  .categories-section .col-lg-4 {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+    padding: 4px !important;
+    width: 50% !important;
+    margin: 0 !important;
+  }
+  
+  .categories-section .d-flex,
+  .categories-section .d-flex,
+  .categories-section .row {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
     align-items: center !important;
-    gap: 15px !important;
+    justify-content: space-between !important;
+    gap: 8px !important;
+    margin: 0 !important;
+    padding: 0 8px !important;
   }
   
   .category-card-wrapper {
-    margin-bottom: 15px !important;
+    margin: 0 0 8px 0 !important;
+    flex: 0 0 calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Cep telefonunda tüm div'leri zorla 50% genişlikte yap */
+  .categories-section .row > div,
+  .categories-section .d-flex > div {
+    flex: 0 0 calc(50% - 4px) !important;
+    max-width: calc(50% - 4px) !important;
+    width: calc(50% - 4px) !important;
+    padding: 4px !important;
+    margin: 0 0 8px 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Kartları tam ortada göster */
+  .categories-section {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
     width: 100% !important;
+  }
+  
+  /* Her satırı ayrı ayrı düzenle */
+  .categories-section .row,
+  .categories-section .d-flex {
+    width: 100% !important;
+    max-width: 100% !important;
+    justify-content: space-between !important;
+    padding: 0 8px !important;
   }
   
   /* Çok küçük ekranlarda kartları tam genişlikte göster */

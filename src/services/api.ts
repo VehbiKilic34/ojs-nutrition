@@ -142,14 +142,29 @@ export interface ProductDetail {
 
 // API fonksiyonları
 export const getCategories = async (): Promise<Category[]> => {
-  const response = await fetch(`${BASE_URL}/categories`);
-  
-  if (!response.ok) {
-    throw new Error('Kategoriler yüklenirken bir hata oluştu');
+  try {
+    const response = await fetch(`${BASE_URL}/categories`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const rawData = await response.json();
+    console.log('Categories API Response:', rawData);
+    
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    if (rawData.status === 'success' && rawData.data && rawData.data.data) {
+      return rawData.data.data;
+    } else if (rawData.status === 'success' && rawData.data) {
+      return rawData.data;
+    } else {
+      throw new Error('API response formatı tanınmıyor');
+    }
+    
+  } catch (error) {
+    console.error('Categories API Error:', error);
+    throw error;
   }
-  
-  const data: ApiResponse<CategoriesResponse> = await response.json();
-  return data.data.data;
 };
 
 export const getAllProducts = async (
@@ -162,48 +177,115 @@ export const getAllProducts = async (
   const offset = (page - 1) * limit;
   let url = `${BASE_URL}/products?limit=${limit}&offset=${offset}`;
   
+  // Arama parametresi varsa ekle
   if (search) {
     url += `&search=${encodeURIComponent(search)}`;
   }
   
+  // Kategori filtreleme parametreleri varsa ekle
   if (mainCategory) {
-    url += `&main_category_id=${mainCategory}`;
+    url += `&main_category=${mainCategory}`;
   }
   
   if (subCategory) {
     url += `&sub_category=${subCategory}`;
   }
-  
-  const response = await fetch(url);
-  
-  if (!response.ok) {
-    throw new Error('Ürünler yüklenirken bir hata oluştu');
+
+  try {
+    // Timeout ile fetch işlemi
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 saniye timeout
+
+    const response = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    });
+
+    clearTimeout(timeoutId);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const rawData = await response.json();
+    console.log('Products API Raw Response:', rawData);
+    
+    // Response formatını kontrol et
+    if (!rawData || typeof rawData !== 'object') {
+      throw new Error('API response geçersiz format');
+    }
+    
+    // API'den gelen format: { status: "success", data: { data: { results: [], count: number, ... } } }
+    if (rawData.status === 'success' && rawData.data && rawData.data.data && rawData.data.data.results) {
+      return rawData.data.data;
+    } else if (rawData.status === 'success' && rawData.data && rawData.data.results) {
+      return rawData.data;
+    } else {
+      throw new Error('API response formatı tanınmıyor');
+    }
+    
+  } catch (error) {
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new Error('API isteği zaman aşımına uğradı');
+    }
+    console.error('API Error:', error);
+    throw error;
   }
-  
-  const data: ApiResponse<ProductsResponse> = await response.json();
-  return data.data;
 };
 
 export const getBestSellers = async (): Promise<BestSellerProduct[]> => {
-  const response = await fetch(`${BASE_URL}/products/best-sellers`);
-  
-  if (!response.ok) {
-    throw new Error('Çok satanlar yüklenirken bir hata oluştu');
+  try {
+    const response = await fetch(`${BASE_URL}/products/best-sellers`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const rawData = await response.json();
+    console.log('Best Sellers API Response:', rawData);
+    
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    if (rawData.status === 'success' && rawData.data && rawData.data.data) {
+      return rawData.data.data;
+    } else if (rawData.status === 'success' && rawData.data) {
+      return rawData.data;
+    } else {
+      throw new Error('API response formatı tanınmıyor');
+    }
+    
+  } catch (error) {
+    console.error('Best Sellers API Error:', error);
+    throw error;
   }
-  
-  const data: ApiResponse<BestSellerProduct[]> = await response.json();
-  return data.data;
 };
 
 export const getProductDetail = async (slug: string): Promise<ProductDetail> => {
-  const response = await fetch(`${BASE_URL}/products/${slug}`);
-  
-  if (!response.ok) {
-    throw new Error('Ürün detayı yüklenirken bir hata oluştu');
+  try {
+    const response = await fetch(`${BASE_URL}/products/${slug}`);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const rawData = await response.json();
+    console.log('Product Detail API Response:', rawData);
+    
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    if (rawData.status === 'success' && rawData.data && rawData.data.data) {
+      return rawData.data.data;
+    } else if (rawData.status === 'success' && rawData.data) {
+      return rawData.data;
+    } else {
+      throw new Error('API response formatı tanınmıyor');
+    }
+    
+  } catch (error) {
+    console.error('Product Detail API Error:', error);
+    throw error;
   }
-  
-  const data: ApiResponse<ProductDetail> = await response.json();
-  return data.data;
 };
 
 // Ürün yorumları için tipler ve fonksiyonlar
@@ -232,21 +314,36 @@ export const getProductComments = async (
   limit: number = 10,
   stars?: number
 ): Promise<ProductCommentsResponse> => {
-  const offset = (page - 1) * limit;
-  let url = `${BASE_URL}/products/${productSlug}/comments?limit=${limit}&offset=${offset}`;
-  
-  if (stars) {
-    url += `&stars=${stars}`;
+  try {
+    const offset = (page - 1) * limit;
+    let url = `${BASE_URL}/products/${productSlug}/comments?limit=${limit}&offset=${offset}`;
+    
+    if (stars) {
+      url += `&stars=${stars}`;
+    }
+    
+    const response = await fetch(url);
+    
+    if (!response.ok) {
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+    }
+    
+    const rawData = await response.json();
+    console.log('Product Comments API Response:', rawData);
+    
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    if (rawData.status === 'success' && rawData.data && rawData.data.data) {
+      return rawData.data.data;
+    } else if (rawData.status === 'success' && rawData.data) {
+      return rawData.data;
+    } else {
+      throw new Error('API response formatı tanınmıyor');
+    }
+    
+  } catch (error) {
+    console.error('Product Comments API Error:', error);
+    throw error;
   }
-  
-  const response = await fetch(url);
-  
-  if (!response.ok) {
-    throw new Error('Ürün yorumları yüklenirken bir hata oluştu');
-  }
-  
-  const data: ApiResponse<ProductCommentsResponse> = await response.json();
-  return data.data;
 };
 
 export const addProductComment = async (
@@ -297,11 +394,20 @@ export const getAllComments = async (): Promise<ProductComment[]> => {
     const response = await fetch(`${BASE_URL}/products/comments?limit=1000&offset=0`);
     
     if (!response.ok) {
-      throw new Error('Yorumlar yüklenirken bir hata oluştu');
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     
-    const data: ApiResponse<ProductCommentsResponse> = await response.json();
-    return data.data.results || [];
+    const rawData = await response.json();
+    console.log('All Comments API Response:', rawData);
+    
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    if (rawData.status === 'success' && rawData.data && rawData.data.data && rawData.data.data.results) {
+      return rawData.data.data.results;
+    } else if (rawData.status === 'success' && rawData.data && rawData.data.results) {
+      return rawData.data.results;
+    } else {
+      return [];
+    }
   } catch (error) {
     console.error('Tüm yorumlar yüklenirken hata:', error);
     return [];
@@ -314,13 +420,24 @@ export const getFeaturedProducts = async (): Promise<Product[]> => {
     const response = await fetch(`${BASE_URL}/products?limit=8&offset=0`);
     
     if (!response.ok) {
-      throw new Error('Öne çıkan ürünler yüklenirken bir hata oluştu');
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     
-    const data: ApiResponse<ProductsResponse> = await response.json();
+    const rawData = await response.json();
+    console.log('Featured Products API Response:', rawData);
+    
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    let products: Product[] = [];
+    if (rawData.status === 'success' && rawData.data && rawData.data.data && rawData.data.data.results) {
+      products = rawData.data.data.results;
+    } else if (rawData.status === 'success' && rawData.data && rawData.data.results) {
+      products = rawData.data.results;
+    } else {
+      return [];
+    }
     
     // Resim URL'lerini düzelt
-    const productsWithFixedImages = data.data.results.map((product) => {
+    const productsWithFixedImages = products.map((product) => {
       let fixedPhotoSrc = product.photo_src;
       
       // Eğer resim URL'i tam URL değilse, base URL ekle
@@ -361,12 +478,23 @@ export const getBanners = async (): Promise<BannerSlide[]> => {
     const response = await fetch(`${BASE_URL}/products?limit=5&offset=0`);
     
     if (!response.ok) {
-      throw new Error('Banner verileri yüklenirken bir hata oluştu');
+      throw new Error(`HTTP ${response.status}: ${response.statusText}`);
     }
     
-    const data: ApiResponse<ProductsResponse> = await response.json();
+    const rawData = await response.json();
+    console.log('Banners API Response:', rawData);
     
-    const banners: BannerSlide[] = data.data.results.map((product, index) => {
+    // API response formatını kontrol et - 3 katmanlı: data.data.data
+    let products: Product[] = [];
+    if (rawData.status === 'success' && rawData.data && rawData.data.data && rawData.data.data.results) {
+      products = rawData.data.data.results;
+    } else if (rawData.status === 'success' && rawData.data && rawData.data.results) {
+      products = rawData.data.results;
+    } else {
+      return [];
+    }
+    
+    const banners: BannerSlide[] = products.map((product, index) => {
       let bannerImage = product.photo_src;
       
       // Eğer resim URL'i tam URL değilse, base URL ekle
